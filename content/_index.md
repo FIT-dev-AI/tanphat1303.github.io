@@ -8,7 +8,7 @@ chapter: false
 # Internship Report
 
 ### Student Information:
-&emsp; **Full Name:** Võ Tấn Phát
+&emsp; **Full Name:** VO TAN PHAT
 
 &emsp; **Phone Number:** 0868903935
 
