@@ -41,41 +41,6 @@ Before setting up, understand how the components interact in local development:
 
 ![Docker Architecture](/images/5-Workshop/5.2-Environment/Docker_Architecture.png)
 
-### Local Development Architecture Detail
-
-{{< mermaid >}}
-graph TB
-    subgraph Development["🐳 Docker Container"]
-        subgraph Data["Data Layer"]
-            Redis["🟢 Redis<br/>:6379"]
-            MySQL["🔵 MySQL<br/>:3306"]
-        end
-    end
-
-    subgraph Backend["⚙️ Backend (ocr-api)"]
-        API["🐍 FastAPI<br/>:8000"]
-        Celery["⚡ Celery<br/>Worker"]
-        WS["🔌 WebSocket<br/>:8000"]
-    end
-
-    subgraph Frontend["🎨 Frontend (myapporc)"]
-        React["⚛️ React<br/>:5173"]
-    end
-
-    React -->|"HTTP/WS| :5173 → :8000"| API
-    API -->|"Publish Tasks"| Redis
-    Celery -->|"Subscribe| :6379"| Redis
-    API -->|"SQL Queries| :3306"| MySQL
-    Celery -->|"Results"| Redis
-    API -->|"Pub/Sub"| WS
-    React -->|"Real-time| WS"| WS
-
-    style Redis fill:#dc382d,stroke:#333,stroke-width:2px,color:#fff
-    style MySQL fill:#00758f,stroke:#333,stroke-width:2px,color:#fff
-    style API fill:#009688,stroke:#333,stroke-width:2px,color:#fff
-    style React fill:#61dafb,stroke:#333,stroke-width:2px
-{{< /mermaid >}}
-
 ---
 
 ### Ports & Services Summary Diagram
@@ -303,12 +268,14 @@ INFO  [alembic.runtime.migration] Running upgrade  -> <latest_revision>
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-You should see:
+Expected output on success:
 
 ```
 INFO:     Uvicorn running on http://0.0.0.0:8000
 INFO:     Application startup complete.
 ```
+
+A blank line here or a non-zero exit code means the server failed to start — re-run step 4 if dependencies are missing.
 
 ### Verify Backend is Running
 
@@ -318,7 +285,7 @@ Open your browser and navigate to:
 http://localhost:8000/docs
 ```
 
-You should see the FastAPI automatic documentation.
+Expected output: the FastAPI automatic documentation (Swagger UI) at the root of `/docs`.
 
 ---
 
@@ -333,12 +300,14 @@ source venv/bin/activate  # or venv\Scripts\activate on Windows
 celery -A celery worker --loglevel=info
 ```
 
-You should see:
+Expected output on success:
 
 ```
 [2024-01-01 12:00:00,000: INFO/MainProcess] Connected to redis://localhost:6379/0
 [2024-01-01 12:00:00,001: INFO/MainProcess] celery@hostname ready
 ```
+
+A `Connection refused` on `redis://localhost:6379/0` means Redis is not running — re-check step 3.
 
 ---
 
@@ -539,9 +508,9 @@ Proceed to [Workshop 5.3: Backend Development](5.3-Backend/) to understand the b
 
 ---
 
-## Validation Checklist
+## Component health check
 
-Before proceeding, verify all components are running:
+Each component is healthy when its expected probe returns the matching value. Run all probes in parallel to confirm the stack is ready:
 
 | Component | URL | Expected |
 |-----------|-----|----------|
