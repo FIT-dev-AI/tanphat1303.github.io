@@ -80,12 +80,7 @@ docker pull <account-id>.dkr.ecr.ap-southeast-1.amazonaws.com/ocr-api:latest
 
 ### CI/CD Pipeline Flow
 
-```
-┌─────────────┐     ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│  Code Push  │────▶│ Build Image │────▶│  Push ECR   │────▶│  Pull & Run │
-│  (GitHub)  │     │  (Docker)  │     │             │     │  (EC2)     │
-└─────────────┘     └─────────────┘     └─────────────┘     └─────────────┘
-```
+![CI/CD Pipeline](/images/5-Workshop/5.6-Deployment/ci_cd.png)
 
 ---
 
