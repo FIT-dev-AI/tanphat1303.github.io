@@ -7,7 +7,7 @@ pre: " <b> 3.1. </b> "
 ---
 
 
-# XỬ LÝ BIG DATA VÀ TỐI ƯU 80% CHI PHÍ TRUY VẤN VỚI S3, GLUE VÀ ATHENA
+### XỬ LÝ BIG DATA VÀ TỐI ƯU 80% CHI PHÍ TRUY VẤN VỚI S3, GLUE VÀ ATHENA
 
 ![Modern Data Lakehouse Architecture](/images/3-BlogsPosted/3.1-Blog1/blog1.png)
 
