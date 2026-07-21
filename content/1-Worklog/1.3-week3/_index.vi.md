@@ -69,29 +69,7 @@ CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 
 #### Thiết kế Kiến trúc triển khai AWS
 
-```
-                            ┌──────────────────┐
-                            │   Amazon S3       │
-                            │  (Static Assets)  │
-                            └────────┬─────────┘
-                                     │
-                            ┌────────▼─────────┐
-                            │  CloudFront CDN  │
-                            └────────┬─────────┘
-                                     │
-                        ┌────────────▼────────────┐
-                        │   Application Load       │
-                        │   Balancer (ALB)         │
-                        └────────────┬────────────┘
-                                     │
-                        ┌────────────▼────────────┐
-                        │   VPC (Private Subnet)   │
-                        │   ┌──────────────────┐  │
-                        │   │  EC2 Instances   │  │
-                        │   │  (Docker)       │  │
-                        │   └──────────────────┘  │
-                        └─────────────────────────┘
-```
+![Thiết kế Kiến trúc triển khai AWS](/images/5-Workshop/5.6-Deployment/AWS.png)
 
 ---
 
