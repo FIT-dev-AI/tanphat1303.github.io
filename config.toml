@@ -1,0 +1,71 @@
+baseURL = "https://workshop-sample.fcjuni.com/"
+relativeURLs = false
+canonifyURLs = false
+defaultContentLanguage = "en"
+
+# Change the default theme to be use when building the site with Hugo
+theme = "hugo-theme-learn"
+
+# For search functionality
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
+
+[params]
+  # Git hub repo link
+  editURL = ""
+  description = "AWS Cloud Engineer Internship Report - Vo Tan Phat"
+  author = "Vo Tan Phat"
+  showVisitedLinks = true
+  disableBreadcrumb = false
+  disableNextPrev = false
+  custom_css = ["css/theme-premium.css"]
+  
+  # Internship Info
+  [params.internship]
+    student = "Vo Tan Phat"
+    student_id = "2280602330"
+    major = "Software Engineering"
+    company = "AWS Bootcamp - First Cloud AI Journey"
+    position = "Cloud Engineer"
+    start_date = "2026-04-17"
+    end_date = "2026-07-30"
+
+[Languages]
+[Languages.en]
+title = "AWS Internship Report"
+weight = 1
+languageName = "EN"
+
+[[Languages.en.menu.shortcuts]]
+name = "<i class='fab fa-aws'></i> AWS Study Group - Blog"
+identifier = "AWS Study Group"
+url = "https://awsstudygroup.com"
+weight = 20
+
+[[Languages.en.menu.shortcuts]]
+name = "<i class='fab fa-facebook'></i> AWS Study Group - FB Group"
+identifier = "AWS Study Group FB"
+url = "https://www.facebook.com/groups/awsstudygroupfcj"
+weight = 20
+
+[Languages.vi]
+title = "Bao Cao Thuc Tap AWS"
+weight = 2
+languageName = "VI"
+
+[[Languages.vi.menu.shortcuts]]
+name = "<i class='fab fa-aws'></i> AWS Study Group - Blog"
+identifier = "AWS Study Group"
+url = "http://awsstudygroup.com"
+weight = 20
+
+[[Languages.vi.menu.shortcuts]]
+name = "<i class='fab fa-facebook'></i> AWS Study Group - Nhom FB"
+identifier = "AWS Study Group FB"
+url = "https://www.facebook.com/groups/awsstudygroupfcj"
+weight = 20
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
