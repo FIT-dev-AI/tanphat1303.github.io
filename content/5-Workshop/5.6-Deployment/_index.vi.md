@@ -17,6 +17,7 @@ Sau khi hoàn thành module này, bạn sẽ:
 - Deploy backend lên AWS services
 - Configure Docker cho production
 - Set up CI/CD pipelines
+- Validate deployed stack end-to-end qua video demo trực tiếp
 - Implement monitoring và logging
 - Configure security best practices
 - Understand cost optimization strategies
@@ -239,7 +240,53 @@ jobs:
 
 ---
 
-## Step 9: Security Best Practices
+## Step 9: Demo trực tiếp — End-to-End trên AWS
+
+Sau khi pipeline được wire-up và đẩy lên ECR, hệ thống đã có thể dùng được từ trình duyệt. Video bên dưới ghi lại một lượt chạy thật vào stack đã deploy: một video tiếng Anh ngắn được upload lên S3 input bucket, backend ECS khởi động Celery pipeline (EasyOCR → Amazon Translate → ElevenLabs TTS → FFmpeg burn-in), và MP4 đã được bản địa hóa sẽ được ghi ngược về S3 kèm email thông báo qua SES. Cả vòng lặp hoàn tất trong thời gian ngắn hơn nhiều so với độ dài video nguồn.
+
+<a href="https://drive.google.com/file/d/1pjXF8gTCsoc7X5n-5nWTakl2H9w0N4Zd/view" target="_blank" rel="noopener" class="demo-button">
+  <span class="play-icon">▶</span> Xem demo end-to-end (Google Drive)
+</a>
+
+<div class="demo-embed">
+  <iframe
+    src="https://drive.google.com/file/d/1pjXF8gTCsoc7X5n-5nWTakl2H9w0N4Zd/preview"
+    width="100%"
+    height="540"
+    allow="autoplay; encrypted-media"
+    allowfullscreen
+    title="Video Localization Platform — Demo trực tiếp trên AWS">
+  </iframe>
+</div>
+
+### Giám khảo nên quan sát những điểm nào
+
+Khi chấm đồ án, demo chính là bằng chứng rằng mọi layer của kiến trúc thực sự hoạt động cùng nhau — không chỉ trên lý thuyết. Có năm điểm kiểm tra có thể thấy được trong video:
+
+1. **Upload → S3.** Frontend gửi file MP4 nguồn thẳng vào pre-signed S3 endpoint của backend; file rơi vào `ocr-video-bucket-prod` mà không đi qua API container.
+2. **Stage OCR (Celery worker).** Trích xuất text theo từng frame chạy trên Fargate worker; file SRT được sinh ra và lưu vào `srt-input-storage-prod` cho các stage phía sau.
+3. **Stage dịch — Amazon Translate.** Mỗi subtitle segment được gửi qua `boto3.client('translate').translate_text(...)`. Provider chiếm ưu thế trong CloudWatch là `AMAZON_TRANSLATE` — đây là tín hiệu nhìn thấy được rằng IAM role đã có `translate:TranslateText` và region lock-down đúng.
+4. **TTS + burn-in.** ElevenLabs tạo voice-over đã được bản địa hóa và FFmpeg composite cùng phụ đề cháy lên video, cho ra MP4 cuối trong `video-sub-ft-prod`.
+5. **Thông báo hoàn thành.** SES thực hiện `SendEmail` mà cùng IAM role cho phép, khép kín vòng lặp quay về người upload.
+
+### Vì sao phần này quan trọng với kiến trúc
+
+Mỗi bước trong demo ánh xạ sang một thành phần cụ thể trong sơ đồ production đã trình bày ở trên:
+
+| Bước demo | AWS service | Điểm chạm Terraform / config |
+|-----------|-------------|------------------------------|
+| Upload | S3 + ECS API | Step 5 (S3 buckets, CORS) |
+| OCR | ECS Fargate + Celery | Step 3 (Task Definition 2048 CPU / 4096 MB) |
+| Dịch | Amazon Translate | Step 10 (IAM `translate:TranslateText`) |
+| TTS | ElevenLabs qua ECS worker | Step 6 (Secrets Manager `elevenlabs_key`) |
+| Burn-in | FFmpeg trong container | Step 1 (Dockerfile base image có ffmpeg) |
+| Thông báo | SES | Step 10 (IAM `ses:SendEmail`) |
+
+> **Lưu ý cho giám khảo:** Nếu iframe preview ở trên không hiển thị được trong môi trường của bạn (một số mạng doanh nghiệp chặn iframe `drive.google.com`), video vẫn có thể xem qua nút link trực tiếp phía trên. Video không phụ thuộc audio để chấm — phụ đề và sub cháy lên video đã mang đầy đủ kết quả.
+
+---
+
+## Step 10: Security Best Practices
 
 ### IAM Role cho ECS Task
 
@@ -356,6 +403,7 @@ Trong module này, bạn đã học:
 - **Secrets Manager**: Secure credential management
 - **CloudWatch**: Logging và monitoring
 - **CI/CD**: Automated deployment pipeline
+- **Demo trực tiếp**: Validation end-to-end trên deployed stack (video liên kết phía trên)
 - **Security**: IAM roles và security groups (bao gồm `translate:TranslateText` cho translation provider chính)
 - **Cost Optimization**: Strategies để reduce costs
 
@@ -418,7 +466,7 @@ aws logs filter-log-events \
 # Expected: nhiều SUCCESS entry (một entry cho mỗi subtitle segment đã dịch)
 ```
 
-> Nếu lệnh thứ 3 trả về rỗng nghĩa là worker đã fallback sang Gemini hoặc GCP v2 cho mọi segment — thường là dấu hiệu thiếu `translate:TranslateText` trong IAM role, sai region, hoặc source language bị mis-detect thành ineligible.
+> Nếu lệnh thứ 3 trả về rỗng nghĩa là worker đã fallback sang Gemini hoặc GCP v2 cho mọi segment ể" thường là dấu hiệu thiếu `translate:TranslateText` trong IAM role, sai region, hoặc source language bị mis-detect thành ineligible.
 
 ---
 

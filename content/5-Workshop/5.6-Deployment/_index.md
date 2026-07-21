@@ -17,6 +17,7 @@ By the end of this module, you will:
 - Deploy the backend to AWS services
 - Configure Docker for production
 - Set up CI/CD pipelines
+- Validate the deployed stack end-to-end with a live demo recording
 - Implement monitoring and logging
 - Configure security best practices
 - Understand cost optimization strategies
@@ -435,7 +436,53 @@ jobs:
 
 ---
 
-## Step 9: Monitoring and Alerts
+## Step 9: Live Demo — End-to-End Run on AWS
+
+After the pipeline is wired up and pushed to ECR, the system is fully usable from a browser. The recording below captures a real run against the deployed stack: a short English video is uploaded to the S3 input bucket, the ECS backend spins up a Celery pipeline (EasyOCR → Amazon Translate → ElevenLabs TTS → FFmpeg burn-in), and the localized MP4 is written back to S3 with an SES email notification. The whole loop finishes in well under the duration of the source clip itself.
+
+<a href="https://drive.google.com/file/d/1pjXF8gTCsoc7X5n-5nWTakl2H9w0N4Zd/view" target="_blank" rel="noopener" class="demo-button">
+  <span class="play-icon">▶</span> Watch the end-to-end demo (Google Drive)
+</a>
+
+<div class="demo-embed">
+  <iframe
+    src="https://drive.google.com/file/d/1pjXF8gTCsoc7X5n-5nWTakl2H9w0N4Zd/preview"
+    width="100%"
+    height="540"
+    allow="autoplay; encrypted-media"
+    allowfullscreen
+    title="Video Localization Platform — Live Demo on AWS">
+  </iframe>
+</div>
+
+### What reviewers should look for
+
+When grading the project, the demo is the proof that every layer of the architecture actually works together, not just on paper. Five checkpoints are visible in the recording:
+
+1. **Upload → S3.** The frontend posts the source MP4 directly to the backend's pre-signed S3 endpoint; the file lands in `ocr-video-bucket-prod` without touching the API container.
+2. **OCR stage (Celery worker).** Frame-by-frame text extraction runs on the Fargate worker; the SRT file is produced and stored in `srt-input-storage-prod` for downstream stages.
+3. **Translation stage — Amazon Translate.** Every subtitle segment is sent through `boto3.client('translate').translate_text(...)`. The dominant provider in CloudWatch is `AMAZON_TRANSLATE`, which is the visible signal that the IAM role has `translate:TranslateText` and the right region lock-down.
+4. **TTS + burn-in.** ElevenLabs generates the localized voice-over and FFmpeg composes it with the burned-in subtitles, producing the final MP4 in `video-sub-ft-prod`.
+5. **Completion notification.** SES fires the `SendEmail` call that the same IAM role authorizes, closing the loop back to the uploader.
+
+### Why this matters for the architecture
+
+Each step above is mapped to a specific component in the production diagram shown earlier:
+
+| Demo step | AWS service | Terraform / config touchpoint |
+|-----------|-------------|-------------------------------|
+| Upload | S3 + ECS API | Step 5 (S3 buckets, CORS) |
+| OCR | ECS Fargate + Celery | Step 3 (Task Definition 2048 CPU / 4096 MB) |
+| Translate | Amazon Translate | Step 10 (IAM `translate:TranslateText`) |
+| TTS | ElevenLabs via ECS worker | Step 6 (Secrets Manager `elevenlabs_key`) |
+| Burn-in | FFmpeg in container | Step 1 (Dockerfile base image with ffmpeg) |
+| Notify | SES | Step 10 (IAM `ses:SendEmail`) |
+
+> **Note for reviewers:** If the embedded preview above does not render in your environment (some corporate networks block the `drive.google.com` iframe), the same recording is available via the direct link button. The video has no audio dependency for grading — captions and burned-in subtitles carry the result.
+
+---
+
+## Step 10: Monitoring and Alerts
 
 ### CloudWatch Dashboard
 
@@ -663,6 +710,7 @@ In this module, you learned:
 - **Secrets Manager**: Secure credential management
 - **CloudWatch**: Logging and monitoring
 - **CI/CD**: Automated deployment pipeline
+- **Live Demo**: End-to-end validation against the deployed stack (recording linked above)
 - **Security**: IAM roles and security groups (incl. `translate:TranslateText` for the primary translation provider)
 - **Cost Optimization**: Strategies to reduce costs
 
