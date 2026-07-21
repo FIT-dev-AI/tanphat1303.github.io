@@ -21,6 +21,7 @@ By the end of this module, you will:
 - Design database models with SQLAlchemy
 - Implement WebSocket endpoints for progress tracking
 - Understand JWT authentication flow
+- Recognize how the backend dispatches translation work to the **Amazon Translate**-led multi-provider pipeline
 
 ---
 
@@ -620,10 +621,15 @@ async def get_current_user(token: str = Depends(oauth2_scheme)) -> User:
 | Video API | `app/api/v1/endpoints/video.py` | Video CRUD operations |
 | Models | `app/models/video.py` | Database schema |
 | Celery Config | `celery.py` | Task queue setup |
-| Tasks | `app/tasks/video_tasks.py` | Async processing |
+| Tasks | `app/tasks/video_tasks.py` | Async processing (OCR + translation + SRT) |
+| Translation Adapter | `app/utils/aws_translate.py` | Amazon Translate primary client (`translate_text`, `translate_batch`) |
+| Orchestrator | `app/modules/module/module_speech_to_text.py` | Multi-provider router: Amazon → Gemini → GCP v2 |
+| Retry Classifier | `app/utils/provider_failure.py` | Tenacity-driven retry boundary with category classification |
 | Progress | `app/utils/progress_reporter.py` | Redis Pub/Sub |
 | WebSocket | `app/websocket/progress.py` | Real-time updates |
 | Security | `app/core/security.py` | JWT authentication |
+
+> **Note on translation:** Stage 1 dispatches `process_video_stage_1` which calls the **multi-provider translation pipeline** (Amazon Translate primary → Gemini fallback → GCP v2 last resort). All Amazon Translate calls are routed through `app/utils/aws_translate.py`, which uses the same AWS credentials as S3/SES — no separate API key is required. See [Workshop 5.4](5.4-AI-Pipeline/) for the full pipeline implementation and routing rules.
 
 ---
 
@@ -638,6 +644,7 @@ In this module, you learned:
 - **Redis Pub/Sub**: Real-time progress broadcasting
 - **WebSocket**: Bidirectional communication with frontend
 - **JWT Authentication**: Secure API access
+- **Translation dispatch**: The Celery `process_video_stage_1` task delegates every subtitle segment to `app/utils/aws_translate.py` (Amazon Translate primary) with Gemini and GCP v2 as automatic fallbacks — see [Workshop 5.4](5.4-AI-Pipeline/) for the full pipeline.
 
 ---
 

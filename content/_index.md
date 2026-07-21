@@ -16,7 +16,7 @@ chapter: false
 
 &emsp; **University:** Ho Chi Minh City University of Technology
 
-&emsp; **Major:** Backend Developer
+&emsp; **Major:** Software Developer
 
 &emsp; **Class:** AWS052026
 

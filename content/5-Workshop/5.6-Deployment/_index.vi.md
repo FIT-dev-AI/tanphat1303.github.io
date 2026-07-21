@@ -239,7 +239,102 @@ jobs:
 
 ---
 
-## Step 9: Cost Optimization
+## Step 9: Security Best Practices
+
+### IAM Role cho ECS Task
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:PutObject",
+        "s3:DeleteObject"
+      ],
+      "Resource": [
+        "arn:aws:s3:::ocr-video-bucket-prod/*",
+        "arn:aws:s3:::video-sub-ft-prod/*",
+        "arn:aws:s3:::srt-input-storage-prod/*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ses:SendEmail",
+        "ses:SendRawEmail"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "translate:TranslateText",
+        "translate:TranslateDocument"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "secretsmanager:GetSecretValue"
+      ],
+      "Resource": "arn:aws:secretsmanager:ap-southeast-2:<account>:secret:video-localization/*"
+    }
+  ]
+}
+```
+
+> **Tại sao cần `translate:TranslateText`:** Celery task `process_video_stage_1` gọi `boto3.client('translate').translate_text(...)` một lần cho mỗi subtitle segment (xem `app/utils/aws_translate.py`). Nếu thiếu permission này, worker sẽ fail mọi Stage-1 job với `AccessDeniedException`. Task role cũng gọi SES (`SendEmail`) để gửi email hoàn thành — vì vậy cả hai service đều nằm chung trong role này. Role tái sử dụng AWS credentials đã provision cho S3 — không cần secret bổ sung.
+
+### Service Control Policy (Khoá vùng)
+
+Với account đa vùng, khoá Amazon Translate về đúng vùng làm việc để tránh drift:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowTranslateOnlyInApSoutheast2",
+      "Effect": "Allow",
+      "Action": [
+        "translate:TranslateText",
+        "translate:TranslateDocument"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "aws:RequestedRegion": "ap-southeast-2"
+        }
+      }
+    }
+  ]
+}
+```
+
+### Security Groups
+
+```bash
+# ECS task security group
+aws ec2 create-security-group \
+  --group-name video-localization-ecs-sg \
+  --description "Security group for ECS tasks" \
+  --vpc-id vpc-xxx
+
+# Allow only necessary ports
+aws ec2 authorize-security-group-ingress \
+  --group-id sg-xxx \
+  --protocol tcp \
+  --port 8000 \
+  --cidr 0.0.0.0/0
+```
+
+---
+
+## Step 10: Cost Optimization
 
 | Optimization | Impact | Estimated Savings |
 |-------------|--------|-------------------|
@@ -261,8 +356,69 @@ Trong module này, bạn đã học:
 - **Secrets Manager**: Secure credential management
 - **CloudWatch**: Logging và monitoring
 - **CI/CD**: Automated deployment pipeline
-- **Security**: IAM roles và security groups
+- **Security**: IAM roles và security groups (bao gồm `translate:TranslateText` cho translation provider chính)
 - **Cost Optimization**: Strategies để reduce costs
+
+---
+
+## Validation
+
+### Health Check
+
+```bash
+curl https://api.example.com/api/v1/health
+```
+
+### End-to-End Test
+
+```bash
+# 1. Upload test video
+curl -X POST https://api.example.com/api/v1/videos/upload \
+  -H "Authorization: Bearer <token>" \
+  -F "file=@test_video.mp4"
+
+# 2. Verify completion
+curl https://api.example.com/api/v1/videos/<video_id> \
+  -H "Authorization: Bearer <token>"
+```
+
+### Smoke Test Amazon Translate
+
+Amazon Translate là translation provider chính. Sau khi deploy, cần verify ECS task role có đúng permission và runtime gọi được service:
+
+```bash
+# 1. Validate task role có thể gọi Translate từ trong container đang chạy
+aws ecs execute-command \
+  --cluster video-localization-cluster \
+  --task <task-arn> \
+  --container backend \
+  --interactive \
+  --command "/bin/sh"
+
+# Bên trong container:
+python -c "
+from app.utils.aws_translate import translate_text, normalize_language_code
+print(normalize_language_code('vi'))                # -> 'vi'
+print(translate_text('Hello world', 'en', 'vi'))    # -> 'Xin chào thế giới'
+"
+
+# 2. Verify CloudWatch không có log AccessDenied / ThrottlingException
+aws logs filter-log-events \
+  --log-group-name /ecs/video-localization \
+  --filter-pattern "TranslateText AccessDenied" \
+  --region ap-southeast-2
+# Expected: empty (không có event nào match)
+
+# 3. Xác nhận Amazon Translate là provider chiếm ưu thế trong observability
+aws logs filter-log-events \
+  --log-group-name /ecs/video-localization \
+  --filter-pattern "AMAZON_TRANSLATE status=SUCCESS" \
+  --region ap-southeast-2 \
+  --start-time $(date -u -d '1 hour ago' +%s)000
+# Expected: nhiều SUCCESS entry (một entry cho mỗi subtitle segment đã dịch)
+```
+
+> Nếu lệnh thứ 3 trả về rỗng nghĩa là worker đã fallback sang Gemini hoặc GCP v2 cho mọi segment — thường là dấu hiệu thiếu `translate:TranslateText` trong IAM role, sai region, hoặc source language bị mis-detect thành ineligible.
 
 ---
 
@@ -288,4 +444,6 @@ aws s3 rb s3://srt-input-storage-prod --force
 - [AWS ECS Documentation](https://docs.aws.amazon.com/ecs/)
 - [AWS Fargate](https://docs.aws.amazon.com/AmazonECS/latest/userguide/what-is-fargate.html)
 - [AWS RDS MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html)
+- [AWS Translate](https://aws.amazon.com/translate/)
+- [Amazon Translate IAM permissions](https://docs.aws.amazon.com/translate/latest/dg/identity-and-access-management.html)
 - [Docker Best Practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)

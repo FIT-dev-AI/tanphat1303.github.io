@@ -483,7 +483,16 @@ aws budgets create-budget \
     {
       "Effect": "Allow",
       "Action": [
-        "ses:SendEmail"
+        "ses:SendEmail",
+        "ses:SendRawEmail"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "translate:TranslateText",
+        "translate:TranslateDocument"
       ],
       "Resource": "*"
     },
@@ -493,6 +502,34 @@ aws budgets create-budget \
         "secretsmanager:GetSecretValue"
       ],
       "Resource": "arn:aws:secretsmanager:ap-southeast-2:<account>:secret:video-localization/*"
+    }
+  ]
+}
+```
+
+> **Why `translate:TranslateText` is required:** the Celery `process_video_stage_1` task calls `boto3.client('translate').translate_text(...)` once per subtitle segment (see `app/utils/aws_translate.py`). Without this permission the worker will fail every Stage-1 job with `AccessDeniedException`. The same task role also calls SES (`SendEmail`) for completion notifications, hence both services are listed in the same role. The single role re-uses the AWS credentials already provisioned for S3 — no extra secret is needed.
+
+### Service Control Policy (Region Lock-down)
+
+For multi-region accounts, lock Amazon Translate to the working region to prevent drift:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowTranslateOnlyInApSoutheast2",
+      "Effect": "Allow",
+      "Action": [
+        "translate:TranslateText",
+        "translate:TranslateDocument"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "aws:RequestedRegion": "ap-southeast-2"
+        }
+      }
     }
   ]
 }
@@ -574,6 +611,44 @@ curl https://api.example.com/api/v1/videos/<video_id> \
   -H "Authorization: Bearer <token>"
 ```
 
+### Amazon Translate Smoke Test
+
+Amazon Translate is the primary translation provider. After deploying, verify the ECS task role has the right permission and the runtime can call the service:
+
+```bash
+# 1. Validate the task role can call Translate from inside the running container
+aws ecs execute-command \
+  --cluster video-localization-cluster \
+  --task <task-arn> \
+  --container backend \
+  --interactive \
+  --command "/bin/sh"
+
+# Inside the container:
+python -c "
+from app.utils.aws_translate import translate_text, normalize_language_code
+print(normalize_language_code('vi'))                # -> 'vi'
+print(translate_text('Hello world', 'en', 'vi'))    # -> 'Xin chào thế giới'
+"
+
+# 2. Verify CloudWatch has no AccessDenied / ThrottlingException entries
+aws logs filter-log-events \
+  --log-group-name /ecs/video-localization \
+  --filter-pattern "TranslateText AccessDenied" \
+  --region ap-southeast-2
+# Expected: empty (no events match)
+
+# 3. Confirm Amazon Translate is the dominant provider in observability
+aws logs filter-log-events \
+  --log-group-name /ecs/video-localization \
+  --filter-pattern "AMAZON_TRANSLATE status=SUCCESS" \
+  --region ap-southeast-2 \
+  --start-time $(date -u -d '1 hour ago' +%s)000
+# Expected: many SUCCESS entries (one per subtitle segment translated)
+```
+
+> A zero-result `AMAZON_TRANSLATE status=SUCCESS` search means the workers fell back to Gemini or GCP v2 for every segment — usually a sign that the IAM role is missing `translate:TranslateText`, the region is wrong, or the source language is being mis-detected as ineligible.
+
 ---
 
 ## Summary
@@ -588,7 +663,7 @@ In this module, you learned:
 - **Secrets Manager**: Secure credential management
 - **CloudWatch**: Logging and monitoring
 - **CI/CD**: Automated deployment pipeline
-- **Security**: IAM roles and security groups
+- **Security**: IAM roles and security groups (incl. `translate:TranslateText` for the primary translation provider)
 - **Cost Optimization**: Strategies to reduce costs
 
 ---
@@ -624,3 +699,5 @@ aws ecr delete-repository --repository-name video-localization-api --force
 - [AWS Fargate](https://docs.aws.amazon.com/AmazonECS/latest/userguide/what-is-fargate.html)
 - [AWS RDS MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html)
 - [Docker Best Practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
+- [AWS Translate](https://aws.amazon.com/translate/)
+- [Amazon Translate IAM permissions](https://docs.aws.amazon.com/translate/latest/dg/identity-and-access-management.html)

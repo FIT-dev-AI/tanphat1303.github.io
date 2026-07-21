@@ -110,7 +110,7 @@ Pipeline tích hợp, end-to-end xử lý từ upload video đến render cuối
 
 Nền tảng tuân theo kiến trúc lấy cảm hứng từ microservices với sự phân tách rõ ràng giữa frontend, backend API, workers bất đồng bộ, và các dịch vụ lưu trữ.
 
-![Video Localization Platform Architecture](/images/2-Proposal/aws_demo.png)
+![Video Localization Platform Architecture](/images/2-Proposal/aws_demo.jpg)
 
 ### Các dịch vụ AWS được sử dụng
 

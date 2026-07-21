@@ -21,6 +21,7 @@ Sau khi hoàn thành module này, bạn sẽ:
 - Design database models với SQLAlchemy
 - Implement WebSocket endpoints cho progress tracking
 - Understand JWT authentication flow
+- Nhận biết cách backend dispatch translation work cho **multi-provider pipeline** dẫn đầu bởi Amazon Translate
 
 ---
 
@@ -335,9 +336,14 @@ def verify_token(token: str):
 | Main App | `app/main.py` | FastAPI configuration |
 | Video API | `app/api/v1/endpoints/video.py` | Video CRUD operations |
 | Models | `app/models/video.py` | Database schema |
-| Tasks | `app/tasks/video_tasks.py` | Async processing |
+| Tasks | `app/tasks/video_tasks.py` | Async processing (OCR + translation + SRT) |
+| Translation Adapter | `app/utils/aws_translate.py` | Amazon Translate primary client (`translate_text`, `translate_batch`) |
+| Orchestrator | `app/modules/module/module_speech_to_text.py` | Multi-provider router: Amazon → Gemini → GCP v2 |
+| Retry Classifier | `app/utils/provider_failure.py` | Tenacity-driven retry boundary với category classification |
 | Progress | `app/utils/progress_reporter.py` | Redis Pub/Sub |
 | WebSocket | `app/websocket/progress.py` | Real-time updates |
+
+> **Lưu ý về translation:** Stage 1 dispatch `process_video_stage_1` sẽ gọi **multi-provider translation pipeline** (Amazon Translate primary → Gemini fallback → GCP v2 last resort). Mọi call đến Amazon Translate đều đi qua `app/utils/aws_translate.py`, dùng chung AWS credentials với S3/SES — không cần API key riêng. Xem chi tiết tại [Workshop 5.4](5.4-AI-Pipeline/).
 
 ---
 
@@ -352,6 +358,7 @@ Trong module này, bạn đã học:
 - **Redis Pub/Sub**: Real-time progress broadcasting
 - **WebSocket**: Bidirectional communication với frontend
 - **JWT Authentication**: Secure API access
+- **Translation dispatch**: Celery `process_video_stage_1` delegate mỗi subtitle segment cho `app/utils/aws_translate.py` (Amazon Translate primary) với Gemini và GCP v2 làm fallback tự động — xem chi tiết tại [Workshop 5.4](5.4-AI-Pipeline/).
 
 ---
 

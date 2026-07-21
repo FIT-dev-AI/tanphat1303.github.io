@@ -110,7 +110,7 @@ An integrated, end-to-end pipeline processing from video upload to final renderi
 
 The platform follows a microservices-inspired architecture with clear separation between frontend, backend API, asynchronous workers, and storage services.
 
-![Video Localization Platform Architecture](/images/2-Proposal/aws_demo.png)
+![Video Localization Platform Architecture](/images/2-Proposal/aws_demo.jpg)
 
 ### AWS Services
 

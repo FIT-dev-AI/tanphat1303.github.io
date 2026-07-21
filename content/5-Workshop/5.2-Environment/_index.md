@@ -69,45 +69,14 @@ graph TB
     Celery -->|"Results"| Redis
     API -->|"Pub/Sub"| WS
     React -->|"Real-time| WS"| WS
+
+    style Redis fill:#dc382d,stroke:#333,stroke-width:2px,color:#fff
+    style MySQL fill:#00758f,stroke:#333,stroke-width:2px,color:#fff
+    style API fill:#009688,stroke:#333,stroke-width:2px,color:#fff
+    style React fill:#61dafb,stroke:#333,stroke-width:2px
 {{< /mermaid >}}
 
 ---
-
-## Ports & Endpoints
-
-### Ports & Endpoints Diagram
-
-{{< mermaid >}}
-graph LR
-    subgraph Clients["Client Layer"]
-        Browser["🌐 Browser<br/>localhost:5173"]
-    end
-
-    subgraph Services["Services"]
-        Frontend["🎨 Vite Dev Server<br/>:5173"]
-        API["🐍 FastAPI<br/>:8000"]
-        Swagger["📚 Swagger UI<br/>:8000/docs"]
-        WS["🔌 WebSocket<br/>:8000/ws"]
-    end
-
-    subgraph Containers["Docker Containers"]
-        RedisCLI["🟢 Redis<br/>:6379"]
-        MySQLCLI["🔵 MySQL<br/>:3306"]
-    end
-
-    Browser -->|"GET /api/v1/*| POST /upload| WS /ws"| API
-    Browser -->|"Hot Reload| HMR"| Frontend
-    API -->|"Redis Pub/Sub| :6379"| RedisCLI
-    API -->|"SQL| :3306"| MySQLCLI
-    CeleryW["⚡ Celery Worker<br/>(Host)"] -.->|"Tasks| :6379"| RedisCLI
-
-    style Browser fill:#f9f,stroke:#333,stroke-width:2px
-    style Frontend fill:#61dafb,stroke:#333,stroke-width:2px
-    style API fill:#009688,stroke:#333,stroke-width:2px,color:#fff
-    style Swagger fill:#85ea4d,stroke:#333,stroke-width:2px
-    style RedisCLI fill:#dc382d,stroke:#333,stroke-width:2px,color:#fff
-    style MySQLCLI fill:#00758f,stroke:#333,stroke-width:2px,color:#fff
-{{< /mermaid >}}
 
 ### Ports & Services Summary Diagram
 
