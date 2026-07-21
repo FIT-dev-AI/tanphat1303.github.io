@@ -24,18 +24,7 @@ pre: " <b> 1.3. </b> "
 
 #### System Overview
 
-```
-┌─────────────────┐     ┌──────────────────┐     ┌─────────────────┐
-│   User Upload   │────▶│  Frontend (S3 +  │────▶│  Backend API    │
-│   Image/Video   │     │   CloudFront)    │     │  (EC2 + Docker) │
-└─────────────────┘     └──────────────────┘     └────────┬────────┘
-                                                          │
-                                                          ▼
-                                                ┌─────────────────┐
-                                                │  OCR + Translate │
-                                                │  (Python/FastAPI)│
-                                                └─────────────────┘
-```
+![System Overview](/images/5-Workshop/5.1-Workshop-overview/Kien-truc-he-thong-tong-quan.png)
 
 #### Component Analysis
 
