@@ -7,7 +7,7 @@ pre: " <b> 3.3. </b> "
 ---
 
 
-# TỰ ĐỘNG HÓA HIỆN ĐẠI HÓA ỨNG DỤNG VỚI STRANDS AGENTS, AWS TRANSFORM CUSTOM VÀ AMAZON BEDROCK AGENTCORE
+### TỰ ĐỘNG HÓA HIỆN ĐẠI HÓA ỨNG DỤNG VỚI STRANDS AGENTS, AWS TRANSFORM CUSTOM VÀ AMAZON BEDROCK AGENTCORE
 
 ![Agentic AI Architecture](/images/3-BlogsPosted/3.3-Blog3/blog3.png)
 
