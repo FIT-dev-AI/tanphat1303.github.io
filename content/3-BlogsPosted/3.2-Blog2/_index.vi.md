@@ -7,7 +7,7 @@ pre: " <b> 3.2. </b> "
 ---
 
 
-# TỰ ĐỘNG HÓA SECURITY SCAN TRÊN AMAZON EKS VỚI KUBESCAPE, AWS CODEBUILD VÀ AWS CODEPIPELINE
+### TỰ ĐỘNG HÓA SECURITY SCAN TRÊN AMAZON EKS VỚI KUBESCAPE, AWS CODEBUILD VÀ AWS CODEPIPELINE
 
 ![Security Scan Architecture](/images/3-BlogsPosted/3.2-Blog2/blog2.png)
 
