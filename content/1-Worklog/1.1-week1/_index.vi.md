@@ -8,7 +8,7 @@ pre: " <b> 1.1. </b> "
 
 ## Tuần 1: AWS Cloud Foundation & Làm quen
 
-> **Thời gian:** 17/04 - 23/04/2026  
+> **Thời gian:** 17/04 - 30/07/2026  
 > **Chủ đề:** AWS Fundamentals & Cloud Computing Basics
 
 ### 📚 Mục tiêu học tập

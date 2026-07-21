@@ -8,7 +8,7 @@ pre: " <b> 1.1. </b> "
 
 ## Week 1: AWS Cloud Foundation & Getting Started
 
-> **Duration:** April 17 - 23, 2026  
+> **Duration:** April 17 - July 30, 2026  
 > **Theme:** AWS Fundamentals & Cloud Computing Basics
 
 ### 📚 Learning Objectives
