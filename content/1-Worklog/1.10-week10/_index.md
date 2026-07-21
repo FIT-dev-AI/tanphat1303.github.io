@@ -11,7 +11,7 @@ pre: " <b> 1.10. </b> "
 > **Duration:** June 16 - 22, 2026  
 > **Theme:** AI/ML Services Integration
 
-### 📚 Learning Objectives
+### Learning Objectives
 
 - Integrate Amazon Textract for improved OCR accuracy
 - Implement Amazon Translate for multi-language support
@@ -20,7 +20,7 @@ pre: " <b> 1.10. </b> "
 
 ---
 
-### 🎯 Key AWS Knowledge Acquired
+### Key AWS Knowledge Acquired
 
 #### Amazon Textract
 
@@ -115,7 +115,7 @@ result = translate.translate_document(
 
 ---
 
-### 📋 Weekly Task List
+### Weekly Task List
 
 | Day | Task | Start | End | Resources |
 |-----|------|-------|-----|-----------|
@@ -129,14 +129,14 @@ result = translate.translate_document(
 
 ---
 
-### ✅ Achievements
+### Achievements
 
 - Textract improved OCR accuracy significantly
 - Amazon Translate supports 75+ languages
 - Processing time improved ~40% for high-res images
 - Learned cost management for AI/ML services
 
-### 📊 Benchmark Results
+### Benchmark Results
 
 | Metric | Open Source OCR | Amazon Textract |
 |--------|-----------------|-----------------|
@@ -147,7 +147,7 @@ result = translate.translate_document(
 
 ---
 
-### 🚧 Difficulties & Solutions
+### Difficulties & Solutions
 
 | Difficulty | Solution |
 |------------|----------|
@@ -155,7 +155,7 @@ result = translate.translate_document(
 | Complex response parsing | Wrote helper functions for extraction |
 | Vietnamese character encoding | Ensured UTF-8 throughout pipeline |
 
-### 💡 Cost Optimization Tips
+### Cost Optimization Tips
 
 - Use **Async Textract** for large documents (cheaper)
 - Cache **common translations** to reduce API calls
@@ -164,7 +164,7 @@ result = translate.translate_document(
 
 ---
 
-### 📅 Next Week's Plan
+### Next Week's Plan
 
 - Write comprehensive **technical documentation**
 - Perform **security review** with Security Hub
@@ -173,7 +173,7 @@ result = translate.translate_document(
 
 ---
 
-### 📖 Reference Materials
+### Reference Materials
 
 - [Amazon Textract Documentation](https://docs.aws.amazon.com/textract)
 - [Amazon Translate Documentation](https://docs.aws.amazon.com/translate)

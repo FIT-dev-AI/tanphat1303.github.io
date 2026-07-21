@@ -11,7 +11,7 @@ pre: " <b> 1.6. </b> "
 > **Thời gian:** 19/05 - 25/05/2026  
 > **Chủ đề:** Network Isolation & Security Architecture
 
-### 📚 Mục tiêu học tập
+### Mục tiêu học tập
 
 - Hiểu các thành phần VPC: Subnets, Route Tables, Internet Gateway, NAT Gateway
 - Tạo VPC với public và private subnets across multiple AZs
@@ -20,7 +20,7 @@ pre: " <b> 1.6. </b> "
 
 ---
 
-### 🎯 Kiến thức AWS đã học
+### Kiến thức AWS đã học
 
 #### Các thành phần Amazon VPC
 
@@ -84,7 +84,7 @@ pre: " <b> 1.6. </b> "
 
 ---
 
-### 📋 Công việc trong tuần
+### Công việc trong tuần
 
 | Thứ | Công việc | Bắt đầu | Kết thúc | Tài liệu |
 |-----|-----------|---------|---------|-----------|
@@ -97,14 +97,14 @@ pre: " <b> 1.6. </b> "
 
 ---
 
-### ✅ Kết quả đạt được
+### Kết quả đạt được
 
 - EC2 backend protected in private subnet, not directly exposed to internet
 - ALB phân phối traffic với automatic health checks
 - Hiểu sâu về VPC networking
 - Hệ thống ổn định sau khi cải thiện kiến trúc
 
-### 🔒 Cải thiện bảo mật
+### Cải thiện bảo mật
 
 | Trước | Sau |
 |--------|-------|
@@ -114,7 +114,7 @@ pre: " <b> 1.6. </b> "
 
 ---
 
-### 🚧 Khó khăn & Giải pháp
+### Khó khăn & Giải pháp
 
 | Khó khăn | Giải pháp |
 |------------|----------|
@@ -122,7 +122,7 @@ pre: " <b> 1.6. </b> "
 | ALB health check failures | Cấu hình đúng health check path (/health) |
 | NAT Gateway costs | Chỉ enable khi cần, disable sau khi dùng |
 
-### 💡 Tối ưu chi phí
+### Tối ưu chi phí
 
 - NAT Gateway: ~$0.045/GB data processed
 - ALB: ~$0.0225/hour + LCU charges
@@ -130,7 +130,7 @@ pre: " <b> 1.6. </b> "
 
 ---
 
-### 📅 Kế hoạch tuần tới
+### Kế hoạch tuần tới
 
 - Kết nối **Amazon RDS PostgreSQL** để lưu trữ user history
 - Cập nhật backend API để tương tác với database
@@ -138,7 +138,7 @@ pre: " <b> 1.6. </b> "
 
 ---
 
-### 📖 Tài liệu tham khảo
+### Tài liệu tham khảo
 
 - [Amazon VPC Documentation](https://docs.aws.amazon.com/vpc)
 - [VPC Networking Best Practices](https://aws.amazon.com/architecture)

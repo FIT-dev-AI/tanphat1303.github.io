@@ -11,7 +11,7 @@ pre: " <b> 1.8. </b> "
 > **Thời gian:** 02/06 - 08/06/2026  
 > **Chủ đề:** Automation & DevOps Best Practices
 
-### 📚 Mục tiêu học tập
+### Mục tiêu học tập
 
 - Xây dựng complete CI/CD pipeline với GitHub Actions
 - Tự động hóa quá trình build, test, và deployment
@@ -20,7 +20,7 @@ pre: " <b> 1.8. </b> "
 
 ---
 
-### 🎯 Kiến thức AWS đã học
+### Kiến thức AWS đã học
 
 #### GitHub Actions Fundamentals
 
@@ -183,7 +183,7 @@ jobs:
 
 ---
 
-### 📋 Công việc trong tuần
+### Công việc trong tuần
 
 | Thứ | Công việc | Bắt đầu | Kết thúc | Tài liệu |
 |-----|-----------|---------|---------|-----------|
@@ -196,14 +196,14 @@ jobs:
 
 ---
 
-### ✅ Kết quả đạt được
+### Kết quả đạt được
 
 - Fully automated CI/CD pipeline hoạt động end-to-end
 - Thời gian deployment giảm từ ~30 phút manual xuống ~8 phút automated
 - Nắm vững nguyên tắc IAM least privilege
 - Hiểu GitHub Actions integration với AWS
 
-### ⚡ Cải thiện hiệu suất
+### Cải thiện hiệu suất
 
 | Metric | Trước (Manual) | Sau (CI/CD) |
 |--------|-----------------|---------------|
@@ -213,7 +213,7 @@ jobs:
 
 ---
 
-### 🚧 Khó khăn & Giải pháp
+### Khó khăn & Giải pháp
 
 | Khó khăn | Giải pháp |
 |------------|----------|
@@ -221,7 +221,7 @@ jobs:
 | IAM permissions không đủ | Kiểm tra CloudTrail để biết permissions cần thiết |
 | CodeDeploy không nhận EC2 | Thêm đúng tags cho EC2 instance |
 
-### 💡 Best Practices
+### Best Practices
 
 - Sử dụng **GitHub Actions Marketplace** actions
 - Luôn dùng **secrets** cho dữ liệu nhạy cảm
@@ -230,7 +230,7 @@ jobs:
 
 ---
 
-### 📅 Kế hoạch tuần tới
+### Kế hoạch tuần tới
 
 - Thiết lập **Amazon CloudWatch** để monitoring
 - Tạo **CloudWatch Alarms** cho notifications
@@ -238,7 +238,7 @@ jobs:
 
 ---
 
-### 📖 Tài liệu tham khảo
+### Tài liệu tham khảo
 
 - [GitHub Actions Documentation](https://docs.github.com/actions)
 - [AWS Actions for GitHub](https://github.com/aws-actions)

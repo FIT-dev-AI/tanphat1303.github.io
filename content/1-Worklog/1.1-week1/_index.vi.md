@@ -8,10 +8,10 @@ pre: " <b> 1.1. </b> "
 
 ## Tuần 1: AWS Cloud Foundation & Làm quen
 
-> **Thời gian:** 17/04 - 30/07/2026  
+> **Thời gian:** 17/04 - 23/04/2026  
 > **Chủ đề:** AWS Fundamentals & Cloud Computing Basics
 
-### 📚 Mục tiêu học tập
+### Mục tiêu học tập
 
 - Nắm vững các khái niệm cơ bản về điện toán đám mây và hệ sinh thái AWS
 - Hiểu AWS Global Infrastructure (Regions, AZs, Edge Locations)
@@ -20,7 +20,7 @@ pre: " <b> 1.1. </b> "
 
 ---
 
-### 🎯 Kiến thức AWS đã học
+### Kiến thức AWS đã học
 
 #### Fundamentals về Cloud Computing
 
@@ -44,7 +44,7 @@ pre: " <b> 1.1. </b> "
 
 ---
 
-### 📋 Công việc trong tuần
+### Công việc trong tuần
 
 | Thứ | Công việc | Bắt đầu | Kết thúc | Tài liệu |
 |-----|-----------|---------|---------|-----------|
@@ -56,7 +56,7 @@ pre: " <b> 1.1. </b> "
 
 ---
 
-### ✅ Kết quả đạt được
+### Kết quả đạt được
 
 - Tạo thành công tài khoản AWS với cấu hình bảo mật
 - Kích hoạt MFA (Multi-Factor Authentication) cho root account
@@ -64,7 +64,7 @@ pre: " <b> 1.1. </b> "
 - Nhận được **$100 AWS Credit** để sử dụng cho việc học tập
 - Hoàn thành fundamentals của AWS Cloud Practitioner learning path
 
-### 🔐 Best Practices bảo mật đã triển khai
+### Best Practices bảo mật đã triển khai
 
 ```bash
 # Enable MFA cho root account
@@ -77,7 +77,7 @@ aws iam attach-user-policy --user-name "intern-user" --policy-arn "arn:aws:iam::
 
 ---
 
-### 🚧 Khó khăn & Giải pháp
+### Khó khăn & Giải pháp
 
 | Khó khăn | Giải pháp |
 |------------|----------|
@@ -87,7 +87,7 @@ aws iam attach-user-policy --user-name "intern-user" --policy-arn "arn:aws:iam::
 
 ---
 
-### 📅 Kế hoạch tuần tới
+### Kế hoạch tuần tới
 
 - Tìm hiểu sâu hơn về **Amazon VPC** networking
 - Thực hành **SSH connectivity** đến EC2 instances
@@ -95,7 +95,7 @@ aws iam attach-user-policy --user-name "intern-user" --policy-arn "arn:aws:iam::
 
 ---
 
-### 📖 Tài liệu tham khảo
+### Tài liệu tham khảo
 
 - [AWS Cloud Practitioner Essentials](https://explore.skillbuilder.aws/learn/course/134/aws-cloud-practitioner-essentials)
 - [AWS Documentation](https://docs.aws.amazon.com)

@@ -11,7 +11,7 @@ pre: " <b> 1.12. </b> "
 > **Duration:** June 30 - July 30, 2026  
 > **Theme:** Performance Optimization & Internship Completion
 
-### 📚 Learning Objectives
+### Learning Objectives
 
 - Perform load testing using Apache JMeter
 - Configure Auto Scaling Group for automatic scaling
@@ -20,7 +20,7 @@ pre: " <b> 1.12. </b> "
 
 ---
 
-### 🎯 Key AWS Knowledge Acquired
+### Key AWS Knowledge Acquired
 
 #### Apache JMeter for Load Testing
 
@@ -122,7 +122,7 @@ Test Plan
 
 ---
 
-### 📋 Weekly Task List
+### Weekly Task List
 
 | Day | Task | Start | End | Resources |
 |-----|------|-------|-----|-----------|
@@ -137,15 +137,15 @@ Test Plan
 
 ---
 
-### ✅ Achievements
+### Achievements
 
 - System handles 100 concurrent users stably
-- Auto Scaling Group: 1 → 3 instances under load
+- Auto Scaling Group: 1 to 3 instances under load
 - Comprehensive 3-month internship report completed
 - Positive mentor feedback
 - OCR-CapCut fully deployed and functional
 
-### 📊 Load Test Results (Before ASG)
+### Load Test Results (Before ASG)
 
 | Metric | 50 Users | 100 Users | 200 Users |
 |--------|----------|-----------|-----------|
@@ -154,7 +154,7 @@ Test Plan
 | Max Response | 800ms | 2.1s | 5.2s |
 | Error Rate | 0% | 0.2% | 8% |
 
-### 📊 Auto Scaling Performance (After ASG)
+### Auto Scaling Performance (After ASG)
 
 | Metric | 50 Users | 100 Users | 200 Users |
 |--------|----------|-----------|-----------|
@@ -165,7 +165,7 @@ Test Plan
 
 ---
 
-### 🚧 Difficulties & Solutions
+### Difficulties & Solutions
 
 | Difficulty | Solution |
 |------------|----------|
@@ -173,7 +173,7 @@ Test Plan
 | Launch Template script errors | Tested manually first |
 | Balancing work and report | Time blocking strategy |
 
-### 💡 Key Lessons Learned
+### Key Lessons Learned
 
 - **Load testing** is essential before production
 - **Auto Scaling** provides resilience and cost optimization
@@ -182,7 +182,7 @@ Test Plan
 
 ---
 
-### 🎯 Future Plans
+### Future Plans
 
 - Pursue **AWS Cloud Practitioner** certification
 - Improve OCR-CapCut with video processing
@@ -191,7 +191,7 @@ Test Plan
 
 ---
 
-### 📚 Skills Acquired Throughout Internship
+### Skills Acquired Throughout Internship
 
 | Category | Skills |
 |----------|--------|
@@ -207,7 +207,7 @@ Test Plan
 
 ---
 
-### 📖 Reference Materials
+### Reference Materials
 
 - [Apache JMeter](https://jmeter.apache.org)
 - [Auto Scaling Documentation](https://docs.aws.amazon.com/autoscaling)

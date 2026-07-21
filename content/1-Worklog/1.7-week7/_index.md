@@ -11,7 +11,7 @@ pre: " <b> 1.7. </b> "
 > **Duration:** May 26 - June 1, 2026  
 > **Theme:** Database Layer & Secure Credential Management
 
-### 📚 Learning Objectives
+### Learning Objectives
 
 - Set up Amazon RDS PostgreSQL for storing user translation history
 - Design database schema with proper relationships
@@ -20,7 +20,7 @@ pre: " <b> 1.7. </b> "
 
 ---
 
-### 🎯 Key AWS Knowledge Acquired
+### Key AWS Knowledge Acquired
 
 #### Amazon RDS (Relational Database Service)
 
@@ -103,7 +103,7 @@ CREATE INDEX idx_ocr_history_created_at ON ocr_history(created_at);
 
 ---
 
-### 📋 Weekly Task List
+### Weekly Task List
 
 | Day | Task | Start | End | Resources |
 |-----|------|-------|-----|-----------|
@@ -117,14 +117,14 @@ CREATE INDEX idx_ocr_history_created_at ON ocr_history(created_at);
 
 ---
 
-### ✅ Achievements
+### Achievements
 
 - RDS PostgreSQL running in private subnet
 - User translation history saved and retrieved successfully
 - Database credentials managed securely via Secrets Manager
 - Learned boto3 SDK for AWS services integration
 
-### 🔐 Security Improvements
+### Security Improvements
 
 | Before | After |
 |--------|-------|
@@ -134,7 +134,7 @@ CREATE INDEX idx_ocr_history_created_at ON ocr_history(created_at);
 
 ---
 
-### 🚧 Difficulties & Solutions
+### Difficulties & Solutions
 
 | Difficulty | Solution |
 |------------|----------|
@@ -142,7 +142,7 @@ CREATE INDEX idx_ocr_history_created_at ON ocr_history(created_at);
 | Schema design not optimal | Referenced database design patterns |
 | Secrets auto-rotation broke connection | Disabled in dev, enabled in production |
 
-### 💡 Best Practices
+### Best Practices
 
 - Always place RDS in **private subnet**
 - Use **Secrets Manager** for all credentials
@@ -151,7 +151,7 @@ CREATE INDEX idx_ocr_history_created_at ON ocr_history(created_at);
 
 ---
 
-### 📅 Next Week's Plan
+### Next Week's Plan
 
 - Build **CI/CD pipeline** with GitHub Actions
 - Automate build and deployment process
@@ -159,7 +159,7 @@ CREATE INDEX idx_ocr_history_created_at ON ocr_history(created_at);
 
 ---
 
-### 📖 Reference Materials
+### Reference Materials
 
 - [Amazon RDS Documentation](https://docs.aws.amazon.com/rds)
 - [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager)

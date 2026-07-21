@@ -11,7 +11,7 @@ pre: " <b> 1.9. </b> "
 > **Duration:** June 9 - 15, 2026  
 > **Theme:** Observability & System Monitoring
 
-### 📚 Learning Objectives
+### Learning Objectives
 
 - Set up CloudWatch for application monitoring (logs and metrics)
 - Create CloudWatch Dashboard with key metrics
@@ -20,7 +20,7 @@ pre: " <b> 1.9. </b> "
 
 ---
 
-### 🎯 Key AWS Knowledge Acquired
+### Key AWS Knowledge Acquired
 
 #### Amazon CloudWatch Components
 
@@ -123,7 +123,7 @@ sns.publish(
 
 ---
 
-### 📋 Weekly Task List
+### Weekly Task List
 
 | Day | Task | Start | End | Resources |
 |-----|------|-------|-----|-----------|
@@ -137,14 +137,14 @@ sns.publish(
 
 ---
 
-### ✅ Achievements
+### Achievements
 
 - CloudWatch Dashboard provides real-time system health overview
 - Received test email alerts when simulating high load
 - Structured logs enable easy error tracing by request ID
 - Understood observability: metrics, logs, and traces
 
-### 📊 Monitoring Dashboard Widgets
+### Monitoring Dashboard Widgets
 
 | Widget | Metric | Refresh |
 |--------|--------|---------|
@@ -156,7 +156,7 @@ sns.publish(
 
 ---
 
-### 🚧 Difficulties & Solutions
+### Difficulties & Solutions
 
 | Difficulty | Solution |
 |------------|----------|
@@ -164,7 +164,7 @@ sns.publish(
 | EC2 memory metrics not available | Installed CloudWatch Agent with IAM role |
 | Too much log noise | Implemented log levels (INFO, WARNING, ERROR) |
 
-### 💡 Best Practices
+### Best Practices
 
 - Use **structured logging** (JSON format) for easier querying
 - Set appropriate **alarm thresholds** based on baseline metrics
@@ -173,7 +173,7 @@ sns.publish(
 
 ---
 
-### 📅 Next Week's Plan
+### Next Week's Plan
 
 - Research **Amazon Textract** for improved OCR accuracy
 - Integrate **Amazon Translate** for multi-language support
@@ -181,7 +181,7 @@ sns.publish(
 
 ---
 
-### 📖 Reference Materials
+### Reference Materials
 
 - [Amazon CloudWatch Documentation](https://docs.aws.amazon.com/cloudwatch)
 - [CloudWatch Agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/download-CloudWatch-Agent-on-EC2-Instance.html)

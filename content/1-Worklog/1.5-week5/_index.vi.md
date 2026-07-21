@@ -11,7 +11,7 @@ pre: " <b> 1.5. </b> "
 > **Thời gian:** 12/05 - 18/05/2026  
 > **Chủ đề:** Static Website Hosting & Content Delivery
 
-### 📚 Mục tiêu học tập
+### Mục tiêu học tập
 
 - Deploy React frontend lên S3 với static website hosting
 - Cấu hình CloudFront CDN cho việc phân phối nội dung toàn cầu
@@ -20,7 +20,7 @@ pre: " <b> 1.5. </b> "
 
 ---
 
-### 🎯 Kiến thức AWS đã học
+### Kiến thức AWS đã học
 
 #### Amazon S3 Static Website Hosting
 
@@ -83,7 +83,7 @@ User Request
 
 ---
 
-### 📋 Công việc trong tuần
+### Công việc trong tuần
 
 | Thứ | Công việc | Bắt đầu | Kết thúc | Tài liệu |
 |-----|-----------|---------|---------|-----------|
@@ -96,14 +96,14 @@ User Request
 
 ---
 
-### ✅ Kết quả đạt được
+### Kết quả đạt được
 
 - Frontend accessible qua CloudFront URL với HTTPS
 - Thời gian tải trang cải thiện đáng kể với CloudFront caching
-- Luồng hoàn chỉnh hoạt động: Upload → API → Translation → Display
+- Luồng hoàn chỉnh hoạt động: Upload API Translation Display
 - Hiểu cách cấu hình CORS cho cross-origin requests
 
-### ⚡ Performance Metrics
+### Performance Metrics
 
 | Metric | Không CDN | Với CloudFront |
 |--------|-------------|-----------------|
@@ -113,7 +113,7 @@ User Request
 
 ---
 
-### 🚧 Khó khăn & Giải pháp
+### Khó khăn & Giải pháp
 
 | Khó khăn | Giải pháp |
 |------------|----------|
@@ -121,7 +121,7 @@ User Request
 | CloudFront cache outdate | Dùng invalidation (/*) sau khi deploy |
 | React build environment variables | Tạo .env.production trước khi build |
 
-### 💡 Best Practices
+### Best Practices
 
 - Luôn **invalidate cache** sau khi deploy phiên bản mới
 - Sử dụng **environment variables** cho API endpoints
@@ -129,7 +129,7 @@ User Request
 
 ---
 
-### 📅 Kế hoạch tuần tới
+### Kế hoạch tuần tới
 
 - Tìm hiểu sâu hơn về **Amazon VPC** networking
 - Deploy EC2 backend trong private subnet
@@ -138,7 +138,7 @@ User Request
 
 ---
 
-### 📖 Tài liệu tham khảo
+### Tài liệu tham khảo
 
 - [S3 Static Website Hosting](https://docs.aws.amazon.com/AmazonS3/latest/userguide/HostingWebsiteOnS3Setup.html)
 - [CloudFront Documentation](https://docs.aws.amazon.com/cloudfront)

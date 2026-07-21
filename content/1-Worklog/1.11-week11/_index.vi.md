@@ -11,7 +11,7 @@ pre: " <b> 1.11. </b> "
 > **Thời gian:** 23/06 - 29/06/2026  
 > **Chủ đề:** Production Readiness & Email Notifications
 
-### 📚 Mục tiêu học tập
+### Mục tiêu học tập
 
 - Viết comprehensive technical documentation cho dự án
 - Implement Amazon SES cho email notifications
@@ -20,7 +20,7 @@ pre: " <b> 1.11. </b> "
 
 ---
 
-### 🎯 Kiến thức AWS đã học
+### Kiến thức AWS đã học
 
 #### Amazon SES (Simple Email Service)
 
@@ -97,7 +97,7 @@ response = ses.send_email(
 
 ---
 
-### 📋 Công việc trong tuần
+### Công việc trong tuần
 
 | Thứ | Công việc | Bắt đầu | Kết thúc | Tài liệu |
 |-----|-----------|---------|---------|-----------|
@@ -111,7 +111,7 @@ response = ses.send_email(
 
 ---
 
-### ✅ Kết quả đạt được
+### Kết quả đạt được
 
 - Comprehensive README cho cả hai repos
 - Security Hub: chỉ còn LOW severity findings
@@ -119,7 +119,7 @@ response = ses.send_email(
 - Email notifications hoạt động với SES
 - Mentor feedback tích cực về midterm report
 
-### 🔧 SES Implementation
+### SES Implementation
 
 ```python
 # Lambda function cho SES email notification
@@ -156,7 +156,7 @@ def lambda_handler(event, context):
 
 ---
 
-### 🚧 Khó khăn & Giải pháp
+### Khó khăn & Giải pháp
 
 | Khó khăn | Giải pháp |
 |------------|----------|
@@ -164,7 +164,7 @@ def lambda_handler(event, context):
 | Quá nhiều Security findings | Ưu tiên theo actual data exposure risk |
 | Cost optimization phức tạp | Sử dụng Cost Explorer recommendations |
 
-### 💡 Best Practices
+### Best Practices
 
 - Enable **SES sending statistics** cho monitoring
 - Sử dụng **custom domain** cho better deliverability
@@ -173,7 +173,7 @@ def lambda_handler(event, context):
 
 ---
 
-### 📅 Kế hoạch tuần tới
+### Kế hoạch tuần tới
 
 - Thực hiện **load testing** với Apache JMeter
 - Cấu hình **Auto Scaling Group** cho EC2 backend
@@ -182,7 +182,7 @@ def lambda_handler(event, context):
 
 ---
 
-### 📖 Tài liệu tham khảo
+### Tài liệu tham khảo
 
 - [Amazon SES Documentation](https://docs.aws.amazon.com/ses)
 - [AWS Security Hub](https://docs.aws.amazon.com/securityhub)

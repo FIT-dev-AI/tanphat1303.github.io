@@ -11,7 +11,7 @@ pre: " <b> 1.4. </b> "
 > **Duration:** May 5 - 11, 2026  
 > **Theme:** Containerizing & Deploying the Backend
 
-### 📚 Learning Objectives
+### Learning Objectives
 
 - Build and push Docker images to Amazon ECR
 - Deploy containerized backend to EC2
@@ -20,7 +20,7 @@ pre: " <b> 1.4. </b> "
 
 ---
 
-### 🎯 Key AWS Knowledge Acquired
+### Key AWS Knowledge Acquired
 
 #### Amazon ECR Operations
 
@@ -58,7 +58,7 @@ docker pull <account-id>.dkr.ecr.ap-southeast-1.amazonaws.com/ocr-api:latest
 
 ---
 
-### 📋 Weekly Task List
+### Weekly Task List
 
 | Day | Task | Start | End | Resources |
 |-----|------|-------|-----|-----------|
@@ -71,14 +71,14 @@ docker pull <account-id>.dkr.ecr.ap-southeast-1.amazonaws.com/ocr-api:latest
 
 ---
 
-### ✅ Achievements
+### Achievements
 
 - Successfully built and pushed Docker image to Amazon ECR
 - Backend API running stably on EC2
 - API endpoints `/ocr` and `/translate` working correctly
-- Understood complete CI pipeline: Build → Push ECR → Pull → Run
+- Understood complete CI pipeline: Build Push ECR Pull Run
 
-### 🔧 CI/CD Pipeline Flow
+### CI/CD Pipeline Flow
 
 ```
 ┌─────────────┐     ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
@@ -89,7 +89,7 @@ docker pull <account-id>.dkr.ecr.ap-southeast-1.amazonaws.com/ocr-api:latest
 
 ---
 
-### 🚧 Difficulties & Solutions
+### Difficulties & Solutions
 
 | Difficulty | Solution |
 |------------|----------|
@@ -97,7 +97,7 @@ docker pull <account-id>.dkr.ecr.ap-southeast-1.amazonaws.com/ocr-api:latest
 | t2.micro insufficient RAM for OCR | Upgraded to t3.medium |
 | IAM permission errors pulling from ECR | Created IAM role with EC2ECRReadOnly policy |
 
-### 💡 Lessons Learned
+### Lessons Learned
 
 - Always check **RAM requirements** before selecting instance type
 - Use **multi-stage builds** to optimize Docker image size
@@ -105,7 +105,7 @@ docker pull <account-id>.dkr.ecr.ap-southeast-1.amazonaws.com/ocr-api:latest
 
 ---
 
-### 📅 Next Week's Plan
+### Next Week's Plan
 
 - Deploy frontend TypeScript/React to S3
 - Configure CloudFront CDN
@@ -114,7 +114,7 @@ docker pull <account-id>.dkr.ecr.ap-southeast-1.amazonaws.com/ocr-api:latest
 
 ---
 
-### 📖 Reference Materials
+### Reference Materials
 
 - [Amazon ECR Documentation](https://docs.aws.amazon.com/ecr)
 - [Docker Multi-stage Builds](https://docs.docker.com/develop/develop-images/multistage-build)

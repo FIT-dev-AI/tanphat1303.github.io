@@ -11,7 +11,7 @@ pre: " <b> 1.8. </b> "
 > **Duration:** June 2 - 8, 2026  
 > **Theme:** Automation & DevOps Best Practices
 
-### 📚 Learning Objectives
+### Learning Objectives
 
 - Build complete CI/CD pipeline with GitHub Actions
 - Automate build, test, and deployment processes
@@ -20,7 +20,7 @@ pre: " <b> 1.8. </b> "
 
 ---
 
-### 🎯 Key AWS Knowledge Acquired
+### Key AWS Knowledge Acquired
 
 #### GitHub Actions Fundamentals
 
@@ -183,7 +183,7 @@ jobs:
 
 ---
 
-### 📋 Weekly Task List
+### Weekly Task List
 
 | Day | Task | Start | End | Resources |
 |-----|------|-------|-----|-----------|
@@ -196,14 +196,14 @@ jobs:
 
 ---
 
-### ✅ Achievements
+### Achievements
 
 - Fully automated CI/CD pipeline working end-to-end
 - Deployment time reduced from ~30 min manual to ~8 min automated
 - Mastered IAM least privilege principle
 - Understood GitHub Actions integration with AWS
 
-### ⚡ Performance Improvement
+### Performance Improvement
 
 | Metric | Before (Manual) | After (CI/CD) |
 |--------|-----------------|---------------|
@@ -213,7 +213,7 @@ jobs:
 
 ---
 
-### 🚧 Difficulties & Solutions
+### Difficulties & Solutions
 
 | Difficulty | Solution |
 |------------|----------|
@@ -221,7 +221,7 @@ jobs:
 | IAM permissions insufficient | Checked CloudTrail for exact permissions needed |
 | CodeDeploy not recognizing EC2 | Added correct tags to EC2 instance |
 
-### 💡 Best Practices
+### Best Practices
 
 - Use **GitHub Actions Marketplace** actions
 - Always use **secrets** for sensitive data
@@ -230,7 +230,7 @@ jobs:
 
 ---
 
-### 📅 Next Week's Plan
+### Next Week's Plan
 
 - Set up **Amazon CloudWatch** for monitoring
 - Create **CloudWatch Alarms** for notifications
@@ -238,7 +238,7 @@ jobs:
 
 ---
 
-### 📖 Reference Materials
+### Reference Materials
 
 - [GitHub Actions Documentation](https://docs.github.com/actions)
 - [AWS Actions for GitHub](https://github.com/aws-actions)

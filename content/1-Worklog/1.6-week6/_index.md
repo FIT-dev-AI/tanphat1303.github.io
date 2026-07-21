@@ -11,7 +11,7 @@ pre: " <b> 1.6. </b> "
 > **Duration:** May 19 - 25, 2026  
 > **Theme:** Network Isolation & Security Architecture
 
-### 📚 Learning Objectives
+### Learning Objectives
 
 - Understand VPC components: Subnets, Route Tables, Internet Gateway, NAT Gateway
 - Create VPC with public and private subnets across multiple AZs
@@ -20,7 +20,7 @@ pre: " <b> 1.6. </b> "
 
 ---
 
-### 🎯 Key AWS Knowledge Acquired
+### Key AWS Knowledge Acquired
 
 #### Amazon VPC Components
 
@@ -84,7 +84,7 @@ pre: " <b> 1.6. </b> "
 
 ---
 
-### 📋 Weekly Task List
+### Weekly Task List
 
 | Day | Task | Start | End | Resources |
 |-----|------|-------|-----|-----------|
@@ -97,14 +97,14 @@ pre: " <b> 1.6. </b> "
 
 ---
 
-### ✅ Achievements
+### Achievements
 
 - EC2 backend protected in private subnet, not directly exposed to internet
 - ALB distributing traffic with automatic health checks
 - Deep understanding of VPC networking
 - System stable after architecture improvements
 
-### 🔒 Security Improvements
+### Security Improvements
 
 | Before | After |
 |--------|-------|
@@ -114,7 +114,7 @@ pre: " <b> 1.6. </b> "
 
 ---
 
-### 🚧 Difficulties & Solutions
+### Difficulties & Solutions
 
 | Difficulty | Solution |
 |------------|----------|
@@ -122,7 +122,7 @@ pre: " <b> 1.6. </b> "
 | ALB health check failures | Configured correct health check path (/health) |
 | NAT Gateway costs | Only enable when needed, disable after use |
 
-### 💡 Cost Optimization
+### Cost Optimization
 
 - NAT Gateway: ~$0.045/GB data processed
 - ALB: ~$0.0225/hour + LCU charges
@@ -130,7 +130,7 @@ pre: " <b> 1.6. </b> "
 
 ---
 
-### 📅 Next Week's Plan
+### Next Week's Plan
 
 - Connect **Amazon RDS PostgreSQL** for storing user history
 - Update backend API to interact with database
@@ -138,7 +138,7 @@ pre: " <b> 1.6. </b> "
 
 ---
 
-### 📖 Reference Materials
+### Reference Materials
 
 - [Amazon VPC Documentation](https://docs.aws.amazon.com/vpc)
 - [VPC Networking Best Practices](https://aws.amazon.com/architecture)

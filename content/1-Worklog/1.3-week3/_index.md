@@ -11,7 +11,7 @@ pre: " <b> 1.3. </b> "
 > **Duration:** April 28 - May 4, 2026  
 > **Theme:** OCR-CapCut Project Planning
 
-### 📚 Learning Objectives
+### Learning Objectives
 
 - Analyze OCR-CapCut project architecture (Frontend + Backend)
 - Understand Docker containerization and its benefits
@@ -20,7 +20,7 @@ pre: " <b> 1.3. </b> "
 
 ---
 
-### 🎯 Project: OCR-CapCut Architecture
+### Project: OCR-CapCut Architecture
 
 #### System Overview
 
@@ -49,7 +49,7 @@ pre: " <b> 1.3. </b> "
 
 ---
 
-### 🎯 Key AWS Knowledge Acquired
+### Key AWS Knowledge Acquired
 
 #### Amazon ECR (Elastic Container Registry)
 
@@ -106,7 +106,7 @@ CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 
 ---
 
-### 📋 Weekly Task List
+### Weekly Task List
 
 | Day | Task | Start | End | Resources |
 |-----|------|-------|-----|-----------|
@@ -118,14 +118,14 @@ CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 
 ---
 
-### ✅ Achievements
+### Achievements
 
-- Understood complete workflow: User Upload → OCR → Translation → Result Display
+- Understood complete workflow: User Upload OCR Translation Result Display
 - Created detailed AWS architecture diagram for OCR-CapCut
 - Identified all required AWS services: EC2, S3, ECR, ALB, IAM, VPC
 - Received mentor approval for deployment plan
 
-### 📊 AWS Services Utilized
+### AWS Services Utilized
 
 | Service | Purpose | Monthly Cost (Estimate) |
 |---------|---------|------------------------|
@@ -138,7 +138,7 @@ CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 
 ---
 
-### 🚧 Difficulties & Solutions
+### Difficulties & Solutions
 
 | Difficulty | Solution |
 |------------|----------|
@@ -148,7 +148,7 @@ CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 
 ---
 
-### 📅 Next Week's Plan
+### Next Week's Plan
 
 - Build Docker image for ocr-api backend
 - Push image to Amazon ECR
@@ -157,7 +157,7 @@ CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 
 ---
 
-### 📖 Reference Materials
+### Reference Materials
 
 - [Amazon ECR Documentation](https://docs.aws.amazon.com/ecr)
 - [Docker Documentation](https://docs.docker.com)

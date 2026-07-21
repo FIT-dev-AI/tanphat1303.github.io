@@ -8,10 +8,10 @@ pre: " <b> 1.1. </b> "
 
 ## Week 1: AWS Cloud Foundation & Getting Started
 
-> **Duration:** April 17 - July 30, 2026  
+> **Duration:** April 17 - 23, 2026  
 > **Theme:** AWS Fundamentals & Cloud Computing Basics
 
-### 📚 Learning Objectives
+### Learning Objectives
 
 - Master core cloud computing concepts and AWS ecosystem
 - Understand AWS Global Infrastructure (Regions, AZs, Edge Locations)
@@ -20,7 +20,7 @@ pre: " <b> 1.1. </b> "
 
 ---
 
-### 🎯 Key AWS Knowledge Acquired
+### Key AWS Knowledge Acquired
 
 #### Cloud Computing Fundamentals
 | Concept | Description |
@@ -42,7 +42,7 @@ pre: " <b> 1.1. </b> "
 
 ---
 
-### 📋 Weekly Task List
+### Weekly Task List
 
 | Day | Task | Start | End | Resources |
 |-----|------|-------|-----|-----------|
@@ -54,7 +54,7 @@ pre: " <b> 1.1. </b> "
 
 ---
 
-### ✅ Achievements
+### Achievements
 
 - Successfully created AWS account with proper security configurations
 - Activated MFA (Multi-Factor Authentication) for root account
@@ -62,7 +62,7 @@ pre: " <b> 1.1. </b> "
 - Received **$100 AWS Credit** for learning purposes
 - Completed AWS Cloud Practitioner learning path fundamentals
 
-### 🔐 Security Best Practices Implemented
+### Security Best Practices Implemented
 
 ```bash
 # Enable MFA for root account
@@ -75,7 +75,7 @@ aws iam attach-user-policy --user-name "intern-user" --policy-arn "arn:aws:iam::
 
 ---
 
-### 🚧 Difficulties & Solutions
+### Difficulties & Solutions
 
 | Difficulty | Solution |
 |------------|----------|
@@ -85,7 +85,7 @@ aws iam attach-user-policy --user-name "intern-user" --policy-arn "arn:aws:iam::
 
 ---
 
-### 📅 Next Week's Plan
+### Next Week's Plan
 
 - Deep dive into **Amazon VPC** networking concepts
 - Practice **SSH connectivity** to EC2 instances
@@ -93,7 +93,7 @@ aws iam attach-user-policy --user-name "intern-user" --policy-arn "arn:aws:iam::
 
 ---
 
-### 📖 Reference Materials
+### Reference Materials
 
 - [AWS Cloud Practitioner Essentials](https://explore.skillbuilder.aws/learn/course/134/aws-cloud-practitioner-essentials)
 - [AWS Documentation](https://docs.aws.amazon.com)

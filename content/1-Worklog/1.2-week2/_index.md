@@ -11,7 +11,7 @@ pre: " <b> 1.2. </b> "
 > **Duration:** April 24 - 30, 2026  
 > **Theme:** Server Management & Command Line Mastery
 
-### 📚 Learning Objectives
+### Learning Objectives
 
 - Master SSH connectivity to EC2 instances using best practices
 - Understand Linux server administration fundamentals
@@ -20,7 +20,7 @@ pre: " <b> 1.2. </b> "
 
 ---
 
-### 🎯 Key AWS Knowledge Acquired
+### Key AWS Knowledge Acquired
 
 #### Amazon EC2 Deep Dive
 
@@ -59,7 +59,7 @@ ssh -A -i "your-key.pem" ec2-user@<public-ip>
 
 ---
 
-### 📋 Weekly Task List
+### Weekly Task List
 
 | Day | Task | Start | End | Resources |
 |-----|------|-------|-----|-----------|
@@ -71,7 +71,7 @@ ssh -A -i "your-key.pem" ec2-user@<public-ip>
 
 ---
 
-### ✅ Achievements
+### Achievements
 
 - Successfully connected to EC2 instance via SSH using secure key pair authentication
 - Mastered Linux command line for server administration
@@ -79,7 +79,7 @@ ssh -A -i "your-key.pem" ec2-user@<public-ip>
 - Learned to use MobaXterm for stable SSH connections (preferred over VSCode)
 - Performed file transfers using SCP and SFTP protocols
 
-### 🔧 Linux Commands Mastered
+### Linux Commands Mastered
 
 ```bash
 # System Information
@@ -106,7 +106,7 @@ kill -9 <pid>
 
 ---
 
-### 🚧 Difficulties & Solutions
+### Difficulties & Solutions
 
 | Difficulty | Solution |
 |------------|----------|
@@ -114,7 +114,7 @@ kill -9 <pid>
 | Security group port 22 not open | Double-checked inbound rules before connecting |
 | Slow Linux command line learning curve | Practiced daily with cheat sheets |
 
-### 💡 Best Practices Learned
+### Best Practices Learned
 
 - **Never** expose port 22 to the world (0.0.0.0/0)
 - Use **bastion host** or **Systems Manager Session Manager** for production
@@ -123,7 +123,7 @@ kill -9 <pid>
 
 ---
 
-### 📅 Next Week's Plan
+### Next Week's Plan
 
 - Analyze **OCR-CapCut project architecture** (frontend + backend)
 - Study **Docker containerization** concepts
@@ -131,7 +131,7 @@ kill -9 <pid>
 
 ---
 
-### 📖 Reference Materials
+### Reference Materials
 
 - [Amazon EC2 Documentation](https://docs.aws.amazon.com/ec2)
 - [Connect to Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstances.html)

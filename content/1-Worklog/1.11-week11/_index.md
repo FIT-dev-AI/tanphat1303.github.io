@@ -11,7 +11,7 @@ pre: " <b> 1.11. </b> "
 > **Duration:** June 23 - 29, 2026  
 > **Theme:** Production Readiness & Email Notifications
 
-### 📚 Learning Objectives
+### Learning Objectives
 
 - Write comprehensive technical documentation for the project
 - Implement Amazon SES for email notifications
@@ -20,7 +20,7 @@ pre: " <b> 1.11. </b> "
 
 ---
 
-### 🎯 Key AWS Knowledge Acquired
+### Key AWS Knowledge Acquired
 
 #### Amazon SES (Simple Email Service)
 
@@ -97,7 +97,7 @@ response = ses.send_email(
 
 ---
 
-### 📋 Weekly Task List
+### Weekly Task List
 
 | Day | Task | Start | End | Resources |
 |-----|------|-------|-----|-----------|
@@ -111,7 +111,7 @@ response = ses.send_email(
 
 ---
 
-### ✅ Achievements
+### Achievements
 
 - Comprehensive README for both repos
 - Security Hub: only LOW severity findings remaining
@@ -119,7 +119,7 @@ response = ses.send_email(
 - Email notifications working with SES
 - Positive mentor feedback on midterm report
 
-### 🔧 SES Implementation
+### SES Implementation
 
 ```python
 # Lambda function for SES email notification
@@ -156,7 +156,7 @@ def lambda_handler(event, context):
 
 ---
 
-### 🚧 Difficulties & Solutions
+### Difficulties & Solutions
 
 | Difficulty | Solution |
 |------------|----------|
@@ -164,7 +164,7 @@ def lambda_handler(event, context):
 | Security findings overload | Prioritized by actual data exposure risk |
 | Cost optimization complexity | Used Cost Explorer recommendations |
 
-### 💡 Best Practices
+### Best Practices
 
 - Enable **SES sending statistics** for monitoring
 - Use **custom domain** for better deliverability
@@ -173,7 +173,7 @@ def lambda_handler(event, context):
 
 ---
 
-### 📅 Next Week's Plan
+### Next Week's Plan
 
 - Perform **load testing** with Apache JMeter
 - Configure **Auto Scaling Group** for EC2 backend
@@ -182,7 +182,7 @@ def lambda_handler(event, context):
 
 ---
 
-### 📖 Reference Materials
+### Reference Materials
 
 - [Amazon SES Documentation](https://docs.aws.amazon.com/ses)
 - [AWS Security Hub](https://docs.aws.amazon.com/securityhub)

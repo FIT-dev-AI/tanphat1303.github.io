@@ -11,7 +11,7 @@ pre: " <b> 1.7. </b> "
 > **Thời gian:** 26/05 - 01/06/2026  
 > **Chủ đề:** Database Layer & Secure Credential Management
 
-### 📚 Mục tiêu học tập
+### Mục tiêu học tập
 
 - Thiết lập Amazon RDS PostgreSQL để lưu trữ lịch sử dịch thuật
 - Thiết kế database schema với các mối quan hệ phù hợp
@@ -20,7 +20,7 @@ pre: " <b> 1.7. </b> "
 
 ---
 
-### 🎯 Kiến thức AWS đã học
+### Kiến thức AWS đã học
 
 #### Amazon RDS (Relational Database Service)
 
@@ -103,7 +103,7 @@ CREATE INDEX idx_ocr_history_created_at ON ocr_history(created_at);
 
 ---
 
-### 📋 Công việc trong tuần
+### Công việc trong tuần
 
 | Thứ | Công việc | Bắt đầu | Kết thúc | Tài liệu |
 |-----|-----------|---------|---------|-----------|
@@ -117,14 +117,14 @@ CREATE INDEX idx_ocr_history_created_at ON ocr_history(created_at);
 
 ---
 
-### ✅ Kết quả đạt được
+### Kết quả đạt được
 
 - RDS PostgreSQL chạy trong private subnet
 - User translation history được lưu và truy xuất thành công
 - Database credentials được quản lý bảo mật qua Secrets Manager
 - Học được boto3 SDK để tích hợp AWS services
 
-### 🔐 Cải thiện bảo mật
+### Cải thiện bảo mật
 
 | Trước | Sau |
 |--------|-------|
@@ -134,7 +134,7 @@ CREATE INDEX idx_ocr_history_created_at ON ocr_history(created_at);
 
 ---
 
-### 🚧 Khó khăn & Giải pháp
+### Khó khăn & Giải pháp
 
 | Khó khăn | Giải pháp |
 |------------|----------|
@@ -142,7 +142,7 @@ CREATE INDEX idx_ocr_history_created_at ON ocr_history(created_at);
 | Schema design không tối ưu | Tham khảo database design patterns |
 | Secrets auto-rotation làm đứt kết nối | Tắt trong dev, bật trong production |
 
-### 💡 Best Practices
+### Best Practices
 
 - Luôn đặt RDS trong **private subnet**
 - Sử dụng **Secrets Manager** cho tất cả credentials
@@ -151,7 +151,7 @@ CREATE INDEX idx_ocr_history_created_at ON ocr_history(created_at);
 
 ---
 
-### 📅 Kế hoạch tuần tới
+### Kế hoạch tuần tới
 
 - Xây dựng **CI/CD pipeline** với GitHub Actions
 - Tự động hóa quá trình build và deployment
@@ -159,7 +159,7 @@ CREATE INDEX idx_ocr_history_created_at ON ocr_history(created_at);
 
 ---
 
-### 📖 Tài liệu tham khảo
+### Tài liệu tham khảo
 
 - [Amazon RDS Documentation](https://docs.aws.amazon.com/rds)
 - [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager)

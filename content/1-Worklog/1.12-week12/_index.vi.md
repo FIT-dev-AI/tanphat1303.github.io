@@ -11,7 +11,7 @@ pre: " <b> 1.12. </b> "
 > **Thời gian:** 30/06 - 30/07/2026  
 > **Chủ đề:** Performance Optimization & Hoàn thành thực tập
 
-### 📚 Mục tiêu học tập
+### Mục tiêu học tập
 
 - Thực hiện load testing sử dụng Apache JMeter
 - Cấu hình Auto Scaling Group cho automatic scaling
@@ -20,7 +20,7 @@ pre: " <b> 1.12. </b> "
 
 ---
 
-### 🎯 Kiến thức AWS đã học
+### Kiến thức AWS đã học
 
 #### Apache JMeter cho Load Testing
 
@@ -122,7 +122,7 @@ Test Plan
 
 ---
 
-### 📋 Công việc trong tuần
+### Công việc trong tuần
 
 | Thứ | Công việc | Bắt đầu | Kết thúc | Tài liệu |
 |-----|-----------|---------|---------|-----------|
@@ -137,15 +137,15 @@ Test Plan
 
 ---
 
-### ✅ Kết quả đạt được
+### Kết quả đạt được
 
 - Hệ thống xử lý 100 concurrent users ổn định
-- Auto Scaling Group: 1 → 3 instances khi load cao
+- Auto Scaling Group: 1 to 3 instances khi load cao
 - Comprehensive 3-month internship report hoàn thành
 - Mentor feedback tích cực
 - OCR-CapCut fully deployed và functional
 
-### 📊 Load Test Results (Before ASG)
+### Load Test Results (Before ASG)
 
 | Metric | 50 Users | 100 Users | 200 Users |
 |--------|----------|-----------|-----------|
@@ -154,7 +154,7 @@ Test Plan
 | Max Response | 800ms | 2.1s | 5.2s |
 | Error Rate | 0% | 0.2% | 8% |
 
-### 📊 Auto Scaling Performance (After ASG)
+### Auto Scaling Performance (After ASG)
 
 | Metric | 50 Users | 100 Users | 200 Users |
 |--------|----------|-----------|-----------|
@@ -165,7 +165,7 @@ Test Plan
 
 ---
 
-### 🚧 Khó khăn & Giải pháp
+### Khó khăn & Giải pháp
 
 | Khó khăn | Giải pháp |
 |------------|----------|
@@ -173,7 +173,7 @@ Test Plan
 | Launch Template script errors | Test manually trước |
 | Cân bằng work và report | Time blocking strategy |
 
-### 💡 Bài học quan trọng
+### Bài học quan trọng
 
 - **Load testing** là essential trước khi lên production
 - **Auto Scaling** cung cấp resilience và cost optimization
@@ -182,7 +182,7 @@ Test Plan
 
 ---
 
-### 🎯 Kế hoạch tương lai
+### Kế hoạch tương lai
 
 - Theo đuổi **AWS Cloud Practitioner** certification
 - Cải thiện OCR-CapCut với video processing
@@ -191,7 +191,7 @@ Test Plan
 
 ---
 
-### 📚 Kỹ năng đạt được trong suốt kỳ thực tập
+### Kỹ năng đạt được trong suốt kỳ thực tập
 
 | Category | Skills |
 |----------|--------|
@@ -207,7 +207,7 @@ Test Plan
 
 ---
 
-### 📖 Tài liệu tham khảo
+### Tài liệu tham khảo
 
 - [Apache JMeter](https://jmeter.apache.org)
 - [Auto Scaling Documentation](https://docs.aws.amazon.com/autoscaling)

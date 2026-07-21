@@ -11,7 +11,7 @@ pre: " <b> 1.4. </b> "
 > **Thời gian:** 05/05 - 11/05/2026  
 > **Chủ đề:** Containerize & Deploy Backend
 
-### 📚 Mục tiêu học tập
+### Mục tiêu học tập
 
 - Build và push Docker images lên Amazon ECR
 - Deploy containerized backend lên EC2
@@ -20,7 +20,7 @@ pre: " <b> 1.4. </b> "
 
 ---
 
-### 🎯 Kiến thức AWS đã học
+### Kiến thức AWS đã học
 
 #### Amazon ECR Operations
 
@@ -58,7 +58,7 @@ docker pull <account-id>.dkr.ecr.ap-southeast-1.amazonaws.com/ocr-api:latest
 
 ---
 
-### 📋 Công việc trong tuần
+### Công việc trong tuần
 
 | Thứ | Công việc | Bắt đầu | Kết thúc | Tài liệu |
 |-----|-----------|---------|---------|-----------|
@@ -71,14 +71,14 @@ docker pull <account-id>.dkr.ecr.ap-southeast-1.amazonaws.com/ocr-api:latest
 
 ---
 
-### ✅ Kết quả đạt được
+### Kết quả đạt được
 
 - Successfully built and pushed Docker image to Amazon ECR
 - Backend API running stably on EC2
 - API endpoints `/ocr` và `/translate` hoạt động đúng
-- Hiểu complete CI pipeline: Build → Push ECR → Pull → Run
+- Hiểu complete CI pipeline: Build Push ECR Pull Run
 
-### 🔧 CI/CD Pipeline Flow
+### CI/CD Pipeline Flow
 
 ```
 ┌─────────────┐     ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
@@ -89,7 +89,7 @@ docker pull <account-id>.dkr.ecr.ap-southeast-1.amazonaws.com/ocr-api:latest
 
 ---
 
-### 🚧 Khó khăn & Giải pháp
+### Khó khăn & Giải pháp
 
 | Khó khăn | Giải pháp |
 |------------|----------|
@@ -97,7 +97,7 @@ docker pull <account-id>.dkr.ecr.ap-southeast-1.amazonaws.com/ocr-api:latest
 | t2.micro không đủ RAM cho OCR | Nâng cấp lên t3.medium |
 | IAM permission errors khi pull từ ECR | Tạo IAM role với EC2ECRReadOnly policy |
 
-### 💡 Bài học kinh nghiệm
+### Bài học kinh nghiệm
 
 - Luôn kiểm tra **RAM requirements** trước khi chọn instance type
 - Sử dụng **multi-stage builds** để tối ưu Docker image size
@@ -105,7 +105,7 @@ docker pull <account-id>.dkr.ecr.ap-southeast-1.amazonaws.com/ocr-api:latest
 
 ---
 
-### 📅 Kế hoạch tuần tới
+### Kế hoạch tuần tới
 
 - Deploy frontend TypeScript/React lên S3
 - Cấu hình CloudFront CDN
@@ -114,7 +114,7 @@ docker pull <account-id>.dkr.ecr.ap-southeast-1.amazonaws.com/ocr-api:latest
 
 ---
 
-### 📖 Tài liệu tham khảo
+### Tài liệu tham khảo
 
 - [Amazon ECR Documentation](https://docs.aws.amazon.com/ecr)
 - [Docker Multi-stage Builds](https://docs.docker.com/develop/develop-images/multistage-build)

@@ -11,7 +11,7 @@ pre: " <b> 1.5. </b> "
 > **Duration:** May 12 - 18, 2026  
 > **Theme:** Static Website Hosting & Content Delivery
 
-### 📚 Learning Objectives
+### Learning Objectives
 
 - Deploy React frontend to S3 as static website hosting
 - Configure CloudFront CDN for global content delivery
@@ -20,7 +20,7 @@ pre: " <b> 1.5. </b> "
 
 ---
 
-### 🎯 Key AWS Knowledge Acquired
+### Key AWS Knowledge Acquired
 
 #### Amazon S3 Static Website Hosting
 
@@ -83,7 +83,7 @@ User Request
 
 ---
 
-### 📋 Weekly Task List
+### Weekly Task List
 
 | Day | Task | Start | End | Resources |
 |-----|------|-------|-----|-----------|
@@ -96,14 +96,14 @@ User Request
 
 ---
 
-### ✅ Achievements
+### Achievements
 
 - Frontend accessible via CloudFront URL with HTTPS
 - Page load time improved significantly with CloudFront caching
-- Complete flow working: Upload → API → Translation → Display
+- Complete flow working: Upload API Translation Display
 - Understood CORS configuration for cross-origin requests
 
-### ⚡ Performance Metrics
+### Performance Metrics
 
 | Metric | Without CDN | With CloudFront |
 |--------|-------------|-----------------|
@@ -113,7 +113,7 @@ User Request
 
 ---
 
-### 🚧 Difficulties & Solutions
+### Difficulties & Solutions
 
 | Difficulty | Solution |
 |------------|----------|
@@ -121,7 +121,7 @@ User Request
 | CloudFront cache outdated | Used invalidation (/*) after deploy |
 | React build environment variables | Created .env.production before build |
 
-### 💡 Best Practices
+### Best Practices
 
 - Always **invalidate cache** after deploying new version
 - Use **environment variables** for API endpoints
@@ -129,7 +129,7 @@ User Request
 
 ---
 
-### 📅 Next Week's Plan
+### Next Week's Plan
 
 - Deep dive into **Amazon VPC** networking
 - Deploy EC2 backend in private subnet
@@ -138,7 +138,7 @@ User Request
 
 ---
 
-### 📖 Reference Materials
+### Reference Materials
 
 - [S3 Static Website Hosting](https://docs.aws.amazon.com/AmazonS3/latest/userguide/HostingWebsiteOnS3Setup.html)
 - [CloudFront Documentation](https://docs.aws.amazon.com/cloudfront)

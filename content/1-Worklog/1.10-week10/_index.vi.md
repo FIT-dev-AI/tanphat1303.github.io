@@ -11,7 +11,7 @@ pre: " <b> 1.10. </b> "
 > **Thời gian:** 16/06 - 22/06/2026  
 > **Chủ đề:** AI/ML Services Integration
 
-### 📚 Mục tiêu học tập
+### Mục tiêu học tập
 
 - Tích hợp Amazon Textract để cải thiện OCR accuracy
 - Implement Amazon Translate cho multi-language support
@@ -20,7 +20,7 @@ pre: " <b> 1.10. </b> "
 
 ---
 
-### 🎯 Kiến thức AWS đã học
+### Kiến thức AWS đã học
 
 #### Amazon Textract
 
@@ -115,7 +115,7 @@ result = translate.translate_document(
 
 ---
 
-### 📋 Công việc trong tuần
+### Công việc trong tuần
 
 | Thứ | Công việc | Bắt đầu | Kết thúc | Tài liệu |
 |-----|-----------|---------|---------|-----------|
@@ -129,14 +129,14 @@ result = translate.translate_document(
 
 ---
 
-### ✅ Kết quả đạt được
+### Kết quả đạt được
 
 - Textract cải thiện OCR accuracy đáng kể
 - Amazon Translate hỗ trợ 75+ ngôn ngữ
 - Thời gian xử lý cải thiện ~40% cho ảnh độ phân giải cao
 - Học cách quản lý chi phí cho AI/ML services
 
-### 📊 Benchmark Results
+### Benchmark Results
 
 | Metric | Open Source OCR | Amazon Textract |
 |--------|-----------------|-----------------|
@@ -147,7 +147,7 @@ result = translate.translate_document(
 
 ---
 
-### 🚧 Khó khăn & Giải pháp
+### Khó khăn & Giải pháp
 
 | Khó khăn | Giải pháp |
 |------------|----------|
@@ -155,7 +155,7 @@ result = translate.translate_document(
 | Complex response parsing | Viết helper functions cho extraction |
 | Vietnamese character encoding | Đảm bảo UTF-8 throughout pipeline |
 
-### 💡 Cost Optimization Tips
+### Cost Optimization Tips
 
 - Sử dụng **Async Textract** cho large documents (rẻ hơn)
 - Cache **common translations** để giảm API calls
@@ -164,7 +164,7 @@ result = translate.translate_document(
 
 ---
 
-### 📅 Kế hoạch tuần tới
+### Kế hoạch tuần tới
 
 - Viết comprehensive **technical documentation**
 - Thực hiện **security review** với Security Hub
@@ -173,7 +173,7 @@ result = translate.translate_document(
 
 ---
 
-### 📖 Tài liệu tham khảo
+### Tài liệu tham khảo
 
 - [Amazon Textract Documentation](https://docs.aws.amazon.com/textract)
 - [Amazon Translate Documentation](https://docs.aws.amazon.com/translate)

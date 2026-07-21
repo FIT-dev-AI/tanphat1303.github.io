@@ -11,7 +11,7 @@ pre: " <b> 1.9. </b> "
 > **Thời gian:** 09/06 - 15/06/2026  
 > **Chủ đề:** Observability & System Monitoring
 
-### 📚 Mục tiêu học tập
+### Mục tiêu học tập
 
 - Thiết lập CloudWatch để monitor ứng dụng (logs và metrics)
 - Tạo CloudWatch Dashboard với các metrics quan trọng
@@ -20,7 +20,7 @@ pre: " <b> 1.9. </b> "
 
 ---
 
-### 🎯 Kiến thức AWS đã học
+### Kiến thức AWS đã học
 
 #### Amazon CloudWatch Components
 
@@ -123,7 +123,7 @@ sns.publish(
 
 ---
 
-### 📋 Công việc trong tuần
+### Công việc trong tuần
 
 | Thứ | Công việc | Bắt đầu | Kết thúc | Tài liệu |
 |-----|-----------|---------|---------|-----------|
@@ -137,14 +137,14 @@ sns.publish(
 
 ---
 
-### ✅ Kết quả đạt được
+### Kết quả đạt được
 
 - CloudWatch Dashboard cung cấp real-time system health overview
 - Nhận được test email alerts khi simulate high load
 - Structured logs cho phép dễ dàng trace errors theo request ID
 - Hiểu về observability: metrics, logs, và traces
 
-### 📊 Monitoring Dashboard Widgets
+### Monitoring Dashboard Widgets
 
 | Widget | Metric | Refresh |
 |--------|--------|---------|
@@ -156,7 +156,7 @@ sns.publish(
 
 ---
 
-### 🚧 Khó khăn & Giải pháp
+### Khó khăn & Giải pháp
 
 | Khó khăn | Giải pháp |
 |------------|----------|
@@ -164,7 +164,7 @@ sns.publish(
 | EC2 memory metrics không có sẵn | Cài CloudWatch Agent với IAM role |
 | Quá nhiều log noise | Implement log levels (INFO, WARNING, ERROR) |
 
-### 💡 Best Practices
+### Best Practices
 
 - Sử dụng **structured logging** (JSON format) để query dễ hơn
 - Đặt **alarm thresholds** phù hợp dựa trên baseline metrics
@@ -173,7 +173,7 @@ sns.publish(
 
 ---
 
-### 📅 Kế hoạch tuần tới
+### Kế hoạch tuần tới
 
 - Nghiên cứu **Amazon Textract** để cải thiện OCR accuracy
 - Tích hợp **Amazon Translate** cho multi-language support
@@ -181,7 +181,7 @@ sns.publish(
 
 ---
 
-### 📖 Tài liệu tham khảo
+### Tài liệu tham khảo
 
 - [Amazon CloudWatch Documentation](https://docs.aws.amazon.com/cloudwatch)
 - [CloudWatch Agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/download-CloudWatch-Agent-on-EC2-Instance.html)

@@ -11,7 +11,7 @@ pre: " <b> 1.2. </b> "
 > **Thời gian:** 24/04 - 30/04/2026  
 > **Chủ đề:** Server Management & Command Line Mastery
 
-### 📚 Mục tiêu học tập
+### Mục tiêu học tập
 
 - Thành thạo kết nối SSH tới EC2 instances với best practices
 - Hiểu fundamentals về quản trị Linux server
@@ -20,7 +20,7 @@ pre: " <b> 1.2. </b> "
 
 ---
 
-### 🎯 Kiến thức AWS đã học
+### Kiến thức AWS đã học
 
 #### Amazon EC2 Deep Dive
 
@@ -59,7 +59,7 @@ ssh -A -i "your-key.pem" ec2-user@<public-ip>
 
 ---
 
-### 📋 Công việc trong tuần
+### Công việc trong tuần
 
 | Thứ | Công việc | Bắt đầu | Kết thúc | Tài liệu |
 |-----|-----------|---------|---------|-----------|
@@ -71,7 +71,7 @@ ssh -A -i "your-key.pem" ec2-user@<public-ip>
 
 ---
 
-### ✅ Kết quả đạt được
+### Kết quả đạt được
 
 - Kết nối thành công tới EC2 instance qua SSH với xác thực key pair
 - Thành thạo Linux command line cho quản trị server
@@ -79,7 +79,7 @@ ssh -A -i "your-key.pem" ec2-user@<public-ip>
 - Sử dụng MobaXterm cho kết nối SSH ổn định hơn
 - Thực hiện file transfers bằng SCP và SFTP protocols
 
-### 🔧 Các lệnh Linux đã thành thạo
+### Các lệnh Linux đã thành thạo
 
 ```bash
 # System Information
@@ -106,7 +106,7 @@ kill -9 <pid>
 
 ---
 
-### 🚧 Khó khăn & Giải pháp
+### Khó khăn & Giải pháp
 
 | Khó khăn | Giải pháp |
 |------------|----------|
@@ -114,7 +114,7 @@ kill -9 <pid>
 | Security group port 22 chưa mở | Kiểm tra inbound rules trước khi kết nối |
 | Chậm trong việc học Linux command line | Thực hành hàng ngày với cheat sheets |
 
-### 💡 Best Practices đã học
+### Best Practices đã học
 
 - **Không bao giờ** expose port 22 ra thế giới (0.0.0.0/0)
 - Sử dụng **bastion host** hoặc **Systems Manager Session Manager** cho production
@@ -123,7 +123,7 @@ kill -9 <pid>
 
 ---
 
-### 📅 Kế hoạch tuần tới
+### Kế hoạch tuần tới
 
 - Phân tích **kiến trúc dự án OCR-CapCut** (frontend + backend)
 - Nghiên cứu **Docker containerization** concepts
@@ -131,7 +131,7 @@ kill -9 <pid>
 
 ---
 
-### 📖 Tài liệu tham khảo
+### Tài liệu tham khảo
 
 - [Amazon EC2 Documentation](https://docs.aws.amazon.com/ec2)
 - [Connect to Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstances.html)
